@@ -1,0 +1,20 @@
+#Greenfoot project file
+class.TitleMenu.image=space1.jpg
+class.TitleMenu.superclass=greenfoot.World
+mainWindow.height=580
+mainWindow.width=857
+mainWindow.x=40
+mainWindow.y=40
+package.numDependencies=0
+package.numTargets=1
+project.charset=UTF-8
+target1.height=50
+target1.name=TitleMenu
+target1.showInterface=false
+target1.type=ClassTarget
+target1.typeParameters=
+target1.width=80
+target1.x=70
+target1.y=10
+version=2.7.0
+world.lastInstantiated=TitleMenu
