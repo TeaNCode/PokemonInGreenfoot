@@ -1,20 +1,27 @@
-#Greenfoot project file
-class.TitleMenu.image=space1.jpg
-class.TitleMenu.superclass=greenfoot.World
-mainWindow.height=580
-mainWindow.width=857
-mainWindow.x=40
-mainWindow.y=40
-package.numDependencies=0
-package.numTargets=1
-project.charset=UTF-8
-target1.height=50
-target1.name=TitleMenu
-target1.showInterface=false
+#Greenfoot properties
+#Sat Oct 10 22:48:30 CDT 2015
 target1.type=ClassTarget
+class.Menu.superclass=greenfoot.World
+class.TitleMenu.superclass=greenfoot.World
+project.charset=UTF-8
+mainWindow.height=580
+class.Menu.image=space.jpg
+class.Github.superclass=greenfoot.Actor
+version=2.7.1
+class.Button.superclass=greenfoot.Actor
 target1.typeParameters=
-target1.width=80
-target1.x=70
-target1.y=10
-version=2.7.0
 world.lastInstantiated=TitleMenu
+target1.height=50
+class.Title.superclass=greenfoot.Actor
+mainWindow.y=40
+target1.width=80
+mainWindow.x=40
+package.numDependencies=0
+target1.y=10
+target1.x=70
+class.TitleMenu.image=space1.jpg
+package.numTargets=1
+mainWindow.width=857
+target1.name=TitleMenu
+class.Subtitle.superclass=greenfoot.Actor
+target1.showInterface=false

@@ -17,5 +17,8 @@ public class TitleMenu extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        addObject(new Title(),getWidth() / 2, getHeight() * 1 / 10);
+        addObject(new Subtitle(),getWidth() / 2, getHeight() * 6 / 10);
+        addObject(new Github(),415,385);
     }
 }
