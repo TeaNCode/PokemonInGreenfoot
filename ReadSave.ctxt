@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=file_path
+comment0.target=ReadSave(java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ReadSave\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=java.lang.String[]\ OpenFile()
+comment3.params=
+comment3.target=int\ readLines()
+numComments=4

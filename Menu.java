@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.io.IOException;
 /**
  * Write a description of class Menu here.
  * 
@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class Menu extends World
 {
-
     /**
      * Constructor for objects of class Menu.
      * 
