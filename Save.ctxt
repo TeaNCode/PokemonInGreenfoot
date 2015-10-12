@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=file_path
+comment0.target=Save(java.lang.String)
+comment0.text=\r\n\ Save\ class\ requires\ a\ file\ path\ to\ be\ passed\ to\ it\r\n
+comment1.params=textLine
+comment1.target=void\ writeToFile(java.lang.String)
+comment1.text=\r\n\ Writes\ a\ String\ 'textLine'\ to\ a\ text\ document\ at\ 'path'\r\n
+comment2.params=
+comment2.target=void\ assembleSave()
+comment2.text=\r\n\ Assemble\ the\ variables\ in\ a\ string\ format\ for\ writing\ to\ text\ file\r\n
+numComments=3
