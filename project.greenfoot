@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Oct 12 21:29:59 CDT 2015
+#Tue Oct 13 16:08:29 CDT 2015
 class.Gameworld.superclass=greenfoot.World
 target1.type=ClassTarget
 class.Menu.superclass=greenfoot.World
@@ -20,10 +20,10 @@ target1.width=80
 mainWindow.x=40
 package.numDependencies=0
 target1.y=10
-target1.x=70
 class.TitleMenu.image=space1.jpg
-package.numTargets=1
+target1.x=70
 mainWindow.width=857
+package.numTargets=1
 target1.name=TitleMenu
 class.Subtitle.superclass=greenfoot.Actor
 target1.showInterface=false

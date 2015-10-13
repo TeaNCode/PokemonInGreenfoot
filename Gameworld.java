@@ -18,6 +18,7 @@ public class Gameworld extends World
         if(typ == "newgame")
         {
             SaveData savedata = new SaveData(true);
+            setBackground("White.png");
         }
         else if(typ == "continuegame")
         {
