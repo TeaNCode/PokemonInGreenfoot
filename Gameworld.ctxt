@@ -1,5 +1,7 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Gameworld()
+comment0.params=typ
+comment0.target=Gameworld(java.lang.String)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Gameworld.\r\n\ \r\n
-numComments=1
+comment1.params=
+comment1.target=void\ Save()
+numComments=2

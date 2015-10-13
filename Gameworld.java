@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.io.File;
 /**
  * Write a description of class Gameworld here.
  * 
@@ -8,14 +8,26 @@ import greenfoot.*;
  */
 public class Gameworld extends World
 {
-
     /**
      * Constructor for objects of class Gameworld.
      * 
      */
-    public Gameworld()
+    public Gameworld(String typ)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1,false); 
+        if(typ == "newgame")
+        {
+            SaveData savedata = new SaveData(true);
+        }
+        else if(typ == "continuegame")
+        {
+
+        }
+        else System.out.println("Error: invalid save-handling type");
+    }
+    public void Save()
+    {
+        Save save = new Save("Save.txt");
+        save.assembleSave();
     }
 }

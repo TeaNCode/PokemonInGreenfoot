@@ -1,12 +1,12 @@
 #Greenfoot properties
-#Mon Oct 12 17:34:09 CDT 2015
+#Mon Oct 12 21:29:59 CDT 2015
 class.Gameworld.superclass=greenfoot.World
 target1.type=ClassTarget
 class.Menu.superclass=greenfoot.World
 class.TitleMenu.superclass=greenfoot.World
 project.charset=UTF-8
-class.Gameworld.image=space1.jpg
 mainWindow.height=580
+class.Gameworld.image=space1.jpg
 class.Menu.image=space.jpg
 class.Github.superclass=greenfoot.Actor
 version=2.7.1

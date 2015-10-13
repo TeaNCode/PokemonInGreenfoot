@@ -12,8 +12,12 @@ public class SaveData
     /**
      * Constructor for objects of class SaveData
      */
-    public SaveData()
+    public SaveData(boolean New)
     {
-        
+        if(New)
+        {
+            Name = null;
+            Female = false;
+        }
     }
 }

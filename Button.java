@@ -18,22 +18,25 @@ public class Button extends Actor
         type = typ; //Store type for later use
         setPicture();
     }
+
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        // Add your action code here.
+        if(Greenfoot.mouseClicked(this) && type == "newgame") Greenfoot.setWorld
+        (new Gameworld("newgame"));
     }    
+
     /**
      * Sets the actor's image depending on the type
      */
     public void setPicture()
     {
         if(type == "newgame") setImage(new GreenfootImage("New Game"
-        ,40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
+                ,40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
         else if(type == "continuegame") setImage(new GreenfootImage(
-        "Continue Game",40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
+                    "Continue Game",40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
     }
 }
