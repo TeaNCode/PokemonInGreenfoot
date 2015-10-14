@@ -24,7 +24,7 @@ public class SaveData
     {
         if(New)
         {
-            Name = null;
+            Name = "nullERRORplox";
             Female = false;
             Boulder = false;
             Cascade = false;
@@ -35,5 +35,9 @@ public class SaveData
             Volcano = false;
             Earth = false;
         }
+    }
+    public SaveData()
+    {
+        
     }
 }

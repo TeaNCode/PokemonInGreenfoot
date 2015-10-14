@@ -8,6 +8,7 @@ import java.io.File;
  */
 public class Gameworld extends World
 {
+    static Letter[] letters = new Letter[42];
     /**
      * Constructor for objects of class Gameworld.
      * 
