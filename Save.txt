@@ -1,1 +1,1 @@
-null false
+nullNaaN false

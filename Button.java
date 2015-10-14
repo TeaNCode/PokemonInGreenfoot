@@ -27,6 +27,8 @@ public class Button extends Actor
     {
         if(Greenfoot.mouseClicked(this) && type == "newgame") Greenfoot.setWorld
         (new Gameworld("newgame"));
+        else if(Greenfoot.mouseClicked(this) && type == "continuegame") 
+        Greenfoot.setWorld(new Gameworld("continuegame"));
     }    
 
     /**
