@@ -2,4 +2,6 @@
 comment0.params=New
 comment0.target=SaveData(boolean)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ SaveData\r\n
-numComments=1
+comment1.params=
+comment1.target=SaveData()
+numComments=2

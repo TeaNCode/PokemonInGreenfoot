@@ -18,6 +18,7 @@ public class Gameworld extends World
         if(typ == "newgame")
         {
             SaveData savedata = new SaveData(true);
+            pickName();
         }
         else if(typ == "continuegame")
         {
@@ -29,5 +30,9 @@ public class Gameworld extends World
     {
         Save save = new Save("Save.txt");
         save.assembleSave();
+    }
+    public void pickName()
+    {
+        setBackground("White.png");
     }
 }

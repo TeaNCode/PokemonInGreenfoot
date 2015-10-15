@@ -52,7 +52,9 @@ public class Save
     public void assembleSave()
     {
         SaveData savedata = new SaveData(false);
-        toSave = savedata.Name + " " + String.valueOf(savedata.Female);
+        toSave = savedata.Name + " " + String.valueOf(savedata.Female) + " " + 
+        String.valueOf(savedata.Boulder) + " " + String.valueOf(savedata.Cascade) + " " +
+        String.valueOf(savedata.Thunder) + " \n" + String.valueOf(savedata.Rainbow);
         try
         {
             writeToFile(toSave);
