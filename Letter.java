@@ -28,10 +28,13 @@ public class Letter extends Actor
             if(savedata.Name == "nullERRORplox") savedata.Name = letter;
             else if(savedata.Name.length() < 10) savedata.Name = savedata.Name + letter;
         }
+<<<<<<< HEAD
         else if(purpose == "PDisplay1")
         {
             if(savedata.Name != "nullERRORplox") 
             setImage(new GreenfootImage(savedata.Name.index(0),30,Color.BLACK,new Color(0,0,0,0)));
         }
+=======
+>>>>>>> bd2a109a536901b5deed5594f93a36e0409cdc84
     }    
 }
