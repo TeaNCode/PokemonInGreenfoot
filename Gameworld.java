@@ -1,6 +1,7 @@
 import greenfoot.*;
 import java.io.File;
 import java.awt.*;
+import javax.swing.*;
 /**
  * Write a description of class Gameworld here.
  * 
@@ -10,7 +11,10 @@ import java.awt.*;
 public class Gameworld extends World
 {
     static Letter[] letters = new Letter[42];
-    private TextBox input;
+    String name;
+    String gender;
+    boolean gotName;
+    static int g;
     /**
      * Constructor for objects of class Gameworld.
      * 
@@ -18,11 +22,16 @@ public class Gameworld extends World
     public Gameworld(String typ)
     {    
         super(600, 400, 1,false); 
+        gotName = false;
         if(typ == "newgame")
         {
             SaveData savedata = new SaveData(true);
             setBackground("White.png");
-            newProfile("Name",10);
+            newProfileName();
+            if(gotName == true)
+            {
+                profileGender();
+            }
         }
         else if(typ == "continuegame")
         {
@@ -35,16 +44,37 @@ public class Gameworld extends World
         Save save = new Save("Save.txt");
         save.assembleSave();
     }
-    public void newProfile(String prompt, int max)
+    public void newProfileName()
     {
+        name = JOptionPane.showInputDialog("Please enter your name. \nNote: this will be your username.");
         addObject(new loader(),300,200);
-        addObject(new TextBox(),250,250);
         GreenfootImage chat = getBackground();
         chat.setColor(Color.BLACK);
-        chat.drawString("Hello, I am Anthony, your profiles soul. What is your name?", 200, 250);
-        input = new TextBox();
-        
-        //input.acceptOnly(TextBox.LETTERS + TextBox.NUMBERS);
-        //input.setMaxLength(max);
+        chat.drawString("Sorry should introduce my self first. \nHello, I am Anthony, your profiles soul. \nSo your are " + name + "? Nice to meet you.", 200, 250);
+        gotName = true;
+        }
+    
+        public void profileGender()
+    {
+            gender = JOptionPane.showInputDialog("Please enter your Gender. \ntype male or female.");
+            if(gender.equals("male"))
+            {
+                g = 1;
+            }
+            else if(gender.equals("female"))
+            {
+                g = 2;
+            }
+            else if(gender.equals("boss"))
+            {
+                g = 9;
+            }
+            addObject(new player(), 375, 200);
+            if(g == 9)
+            {
+                GreenfootImage chat = getBackground();
+                chat.setColor(Color.GREEN);
+                chat.drawString("This isnt nuclear thrones!", 200, 300);
+            }
+        }
     }
-}
