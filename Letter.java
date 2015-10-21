@@ -34,52 +34,52 @@ public class Letter extends Actor
         else if(type == "PDisplay1")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(0)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(0)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay2")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(1)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(1)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay3")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(2)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(2)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay4")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(3)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(3)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay5")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(4)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(4)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay6")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(5)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(5)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay7")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(6)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(6)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay8")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(7)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(7)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay9")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(8)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(8)),50,Color.BLACK,new Color(0,0,0,0)));
         }
         else if(type == "PDisplay10")
         {
             if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(9)),30,Color.BLACK,new Color(0,0,0,0)));
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(9)),50,Color.BLACK,new Color(0,0,0,0)));
         }
     }    
 }
