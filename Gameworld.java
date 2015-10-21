@@ -35,7 +35,8 @@ public class Gameworld extends World
     public void pickName()
     {
         setBackground("White.png");
-        for(int i = 1; i < 11;  i++) addObject(new Letter("PDisplay" + i,"a",0),75 + (i * 25),75);
+        for(int i = 1; i < 11;  i++) addObject(new Letter("PDisplay" + i,"a",i),75 + (i * 25),75);
         addObject(new Letter("PName","a",0),100,150);
+        addObject(new Letter("PName","b",1),125,150);
     }
 }
