@@ -8,6 +8,7 @@ import java.awt.Color;
  */
 public class Letter extends Actor
 {
+<<<<<<< HEAD
     private String letter;
     private String purpose;
     public Letter(String purrpose,String lttr)
@@ -15,6 +16,17 @@ public class Letter extends Actor
         setImage(new GreenfootImage(lttr,30,Color.BLACK,new Color(0,0,0,0)));
         letter = lttr;
         purpose = purrpose;
+=======
+    private int index;
+    private String letter;
+    private String type;
+    public Letter(String typ,String lttr,int indx)
+    {
+        index = indx;
+        letter = lttr;
+        type = typ;
+       if(type == "PName") setImage(new GreenfootImage(letter,30,Color.BLACK,new Color(0,0,0,0)));
+>>>>>>> refs/remotes/origin/master
     }
     /**
      * Act - do whatever the Letter wants to do. This method is called whenever
@@ -22,6 +34,7 @@ public class Letter extends Actor
      */
     public void act() 
     {
+<<<<<<< HEAD
         SaveData savedata = new SaveData();
         if(purpose == "PName" && Greenfoot.mouseClicked(this))
         {
@@ -36,5 +49,17 @@ public class Letter extends Actor
         }
 =======
 >>>>>>> bd2a109a536901b5deed5594f93a36e0409cdc84
+=======
+        if(type == "PName" && Greenfoot.mouseClicked(this))
+        {
+            SaveData savedata = new SaveData();
+            if(savedata.Name == "nullERRORplox") savedata.Name = letter;
+            else if(savedata.Name.length() < 10) savedata.Name = savedata.Name + letter;
+        }
+        else if(type == "PDisplay")
+        {
+            
+        }
+>>>>>>> refs/remotes/origin/master
     }    
 }

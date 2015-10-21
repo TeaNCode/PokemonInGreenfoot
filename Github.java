@@ -28,6 +28,7 @@ public class Github extends Actor
      */
     public void setPicture()
     {
-        setImage(new GreenfootImage("https://github.com/TeaNCode/PokemonInGreenfoot",20,Color.WHITE,new Color(0,0,0,0)));
+        setImage(new GreenfootImage("https://github.com/TeaNCode/PokemonInGreenfoot"
+        ,20,Color.WHITE,new Color(0,0,0,0)));
     }
 }
