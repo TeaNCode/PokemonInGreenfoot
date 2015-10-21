@@ -14,17 +14,17 @@ public class player extends Actor
      */
     public void act() 
     {
-        if(Gameworld.g == 1)
-        {
-            setImage("male.png");
-        }
-        else if(Gameworld.g == 2)
-        {
-            setImage("female.png");
-        }
-        else if(Gameworld.g == 9)
-        {
-            setImage("boss.png");
-        }
+        //if(Gameworld.g == 1)
+        //{
+            //setImage("male.png");
+        //}
+        //else if(Gameworld.g == 2)
+        //{
+            //setImage("female.png");
+        //}
+        //else if(Gameworld.g == 9)
+        //{
+            //setImage("boss.png");
+        //}
     }    
 }

@@ -34,5 +34,6 @@ public class Gameworld extends World
     public void pickName()
     {
         setBackground("White.png");
+        addObject(new Letter(
     }
 }

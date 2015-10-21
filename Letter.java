@@ -8,25 +8,16 @@ import java.awt.Color;
  */
 public class Letter extends Actor
 {
-<<<<<<< HEAD
-    private String letter;
-    private String purpose;
-    public Letter(String purrpose,String lttr)
-    {
-        setImage(new GreenfootImage(lttr,30,Color.BLACK,new Color(0,0,0,0)));
-        letter = lttr;
-        purpose = purrpose;
-=======
-    private int index;
     private String letter;
     private String type;
+    private int index;
     public Letter(String typ,String lttr,int indx)
     {
         index = indx;
         letter = lttr;
         type = typ;
        if(type == "PName") setImage(new GreenfootImage(letter,30,Color.BLACK,new Color(0,0,0,0)));
->>>>>>> refs/remotes/origin/master
+       else setImage(new GreenfootImage("_",30,Color.BLACK,new Color(0,0,0,0)));
     }
     /**
      * Act - do whatever the Letter wants to do. This method is called whenever
@@ -34,32 +25,61 @@ public class Letter extends Actor
      */
     public void act() 
     {
-<<<<<<< HEAD
         SaveData savedata = new SaveData();
-        if(purpose == "PName" && Greenfoot.mouseClicked(this))
-        {
-            if(savedata.Name == "nullERRORplox") savedata.Name = letter;
-            else if(savedata.Name.length() < 10) savedata.Name = savedata.Name + letter;
-        }
-<<<<<<< HEAD
-        else if(purpose == "PDisplay1")
-        {
-            if(savedata.Name != "nullERRORplox") 
-            setImage(new GreenfootImage(savedata.Name.index(0),30,Color.BLACK,new Color(0,0,0,0)));
-        }
-=======
->>>>>>> bd2a109a536901b5deed5594f93a36e0409cdc84
-=======
         if(type == "PName" && Greenfoot.mouseClicked(this))
         {
-            SaveData savedata = new SaveData();
             if(savedata.Name == "nullERRORplox") savedata.Name = letter;
             else if(savedata.Name.length() < 10) savedata.Name = savedata.Name + letter;
         }
-        else if(type == "PDisplay")
+        else if(type == "PDisplay1")
         {
-            
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(0)),30,Color.BLACK,new Color(0,0,0,0)));
         }
->>>>>>> refs/remotes/origin/master
+        else if(type == "PDisplay2")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(1)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay3")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(2)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay4")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(3)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay5")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(4)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay6")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(5)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay7")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(6)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay8")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(7)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay9")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(8)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
+        else if(type == "PDisplay10")
+        {
+            if(savedata.Name != "nullERRORplox") 
+            setImage(new GreenfootImage(Character.toString(savedata.Name.charAt(9)),30,Color.BLACK,new Color(0,0,0,0)));
+        }
     }    
 }
