@@ -8,7 +8,7 @@ import java.awt.Color;
  */
 public class Letter extends Actor
 {
-    private String letter;
+    public String letter;
     private String type;
     private int index;
     static int charToWrite;
@@ -20,6 +20,8 @@ public class Letter extends Actor
         charToWrite = 1;
         if(type == "PName") setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
         else setImage(new GreenfootImage("_",70,Color.BLACK,new Color(0,0,0,0)));
+        SaveData savedata = new SaveData();
+        savedata.Letters[index] = this;
     }
 
     /**
@@ -44,6 +46,11 @@ public class Letter extends Actor
         SaveData savedata = new SaveData();
         setImage(new GreenfootImage(savedata.Name.substring(index - 1, index),70,Color.BLACK,new Color(0,0,0,0)));
         //System.out.println(savedata.Name);
+    }
+    
+    public void updateKeyboard()
+    {
+        if(type == "PName") setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
     }
 
     public void updateName()

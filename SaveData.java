@@ -6,6 +6,7 @@
  */
 public class SaveData  
 {
+    static Letter[] Letters = new Letter[40];
     static String Name;
     static boolean Female;
     static boolean Boulder;

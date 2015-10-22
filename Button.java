@@ -9,6 +9,7 @@ import java.awt.Color;
 public class Button extends Actor
 {
     private String type;
+    private boolean delete;
     /**
      * Executed when Button added to world.
      * Button type needs to be specified
@@ -17,6 +18,7 @@ public class Button extends Actor
     {
         type = typ; //Store type for later use
         setPicture();
+        delete = false;
     }
 
     /**
@@ -26,9 +28,14 @@ public class Button extends Actor
     public void act() 
     {
         if(Greenfoot.mouseClicked(this) && type == "newgame") Greenfoot.setWorld
-        (new Gameworld("newgame"));
+            (new Gameworld("newgame"));
         else if(Greenfoot.mouseClicked(this) && type == "continuegame") 
-        Greenfoot.setWorld(new Gameworld("continuegame"));
+            Greenfoot.setWorld(new Gameworld("continuegame"));
+        else if(Greenfoot.mouseClicked(this) && type == "lowercase")
+            lowerCase();
+        else if(Greenfoot.mouseClicked(this) && type == "uppercase")
+            upperCase();
+        if(delete) getWorld().removeObject(this);
     }    
 
     /**
@@ -40,5 +47,39 @@ public class Button extends Actor
                 ,40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
         else if(type == "continuegame") setImage(new GreenfootImage(
                     "Continue Game",40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
+        else if(type == "lowercase") setImage(new GreenfootImage(
+                    "lower case",40,Color.BLACK,new Color(0,0,0,0)));
+        else if(type == "uppercase") setImage(new GreenfootImage(
+                    "UPPER CASE",40,Color.BLACK,new Color(0,0,0,0)));
+    }
+
+    public void lowerCase()
+    {
+        SaveData savedata = new SaveData();
+        String[] lowercase = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n"
+            ,"o","p","q","r","s","t","u","v","w","x","y","z",",",".","?","!","1","2","3","4",
+                "5","6","7","8","9","0"};
+        for(int i = 0; i < 40; i++)
+        {
+            savedata.Letters[i].letter = lowercase[i];
+            savedata.Letters[i].updateKeyboard();
+        }
+        getWorld().addObject(new Button("uppercase"),getX(),getY());
+        delete = true;
+    }
+
+    public void upperCase()
+    {
+        SaveData savedata = new SaveData();
+        String[] uppercase = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
+                "R","S","T","U","V","W","X","Y","Z",",",".","?","!","1","2","3","4",
+                "5","6","7","8","9","0"};
+        for(int i = 0; i < 40; i++)
+        {
+            savedata.Letters[i].letter = uppercase[i];
+            savedata.Letters[i].updateKeyboard();
+        }
+        getWorld().addObject(new Button("lowercase"),getX(),getY());
+        delete = true;
     }
 }
