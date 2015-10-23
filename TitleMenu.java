@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class TitleMenu extends World
 {
-
     /**
      * Constructor for objects of class TitleMenu.
      * 
