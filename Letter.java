@@ -12,6 +12,10 @@ public class Letter extends Actor
     private String type;
     private int index;
     static int charToWrite;
+    /**
+     * This constructor is primarily used when making a key of a keyboard, or when displaying the
+     * values of what you're typing. For other Letter uses please refer to the other constructor.
+     */
     public Letter(String typ,String lttr,int indx)
     {
         index = indx;
@@ -21,7 +25,19 @@ public class Letter extends Actor
         if(type == "PName") setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
         else setImage(new GreenfootImage("_",70,Color.BLACK,new Color(0,0,0,0)));
         SaveData savedata = new SaveData();
-        savedata.Letters[index] = this;
+        if(type == "PName") savedata.Letters[index] = this;
+    }
+    /**
+     * This constructor is used for objects that aren't part of the keyboard or displaying what it is
+     * typing, but associated with it (Usually by need of the charToWrite value).
+     */
+    public Letter(String typ)
+    {
+        type = typ;
+        if(type == "PDel") setImage(new GreenfootImage("Backspace",45,Color.BLACK,
+                    new Color(0,0,0,0)));
+        else if(type == "PDone") setImage(new GreenfootImage("Done",50,Color.BLACK,
+                    new Color(0,0,0,0)));
     }
 
     /**
@@ -33,10 +49,15 @@ public class Letter extends Actor
         SaveData savedata = new SaveData();
         if(type == "PName")
         {
-            if(Greenfoot.mouseClicked(this))
-            {
-                updateName();
-            }
+            if(Greenfoot.mouseClicked(this))updateName();
+        }
+        else if(type == "PDel")
+        {
+            if(Greenfoot.mouseClicked(this))delChar();
+        }
+        else if(type == "PDone")
+        {
+            if(Greenfoot.mouseClicked(this))done();
         }
         else if(savedata.Name != "nullERRORplox")updatePicture();
     }    
@@ -44,10 +65,11 @@ public class Letter extends Actor
     public void updatePicture()
     {
         SaveData savedata = new SaveData();
-        setImage(new GreenfootImage(savedata.Name.substring(index - 1, index),70,Color.BLACK,new Color(0,0,0,0)));
+        setImage(new GreenfootImage(savedata.Name.substring(index - 1, index),70,Color.BLACK,
+        new Color(0,0,0,0)));
         //System.out.println(savedata.Name);
     }
-    
+
     public void updateKeyboard()
     {
         if(type == "PName") setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
@@ -63,14 +85,33 @@ public class Letter extends Actor
             if(shortName.length() < 10)
             {
                 savedata.Name = savedata.Name.substring(0,charToWrite) + letter;
-                //savedata.Name.concat("_________");
                 savedata.Name = savedata.Name + "__________";
                 if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
-                //System.out.println("Printing parts of name: \n" //For debugging
-                //    + savedata.Name.substring(0,charToWrite) + " " + letter); //For debugging
                 charToWrite++;
             }
         }
         //System.out.println(savedata.Name); //For debugging
+    }
+
+    public void delChar()
+    {
+        SaveData savedata = new SaveData();
+        if(savedata.Name != "nullERRORplox")
+        {
+            savedata.Name = savedata.Name.substring(0,charToWrite -  1);
+            charToWrite--;
+            savedata.Name = savedata.Name + "__________";
+            if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
+        }
+    }
+    
+    public void done()
+    {
+        SaveData savedata = new SaveData();
+        if(savedata.Name != "nullERRORplox")
+        {
+            savedata.Name = savedata.Name.substring(0,charToWrite);
+            getWorld().removeObjects(getWorld().getObjects(null));
+        }
     }
 }

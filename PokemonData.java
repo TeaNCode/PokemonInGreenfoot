@@ -6,17 +6,27 @@
  */
 public class PokemonData  
 {
-    //Pokemon Ints format {Base HP,Base Attack, Base Defense, Base Special attack
-    //  , Base Special Defense,Base Speed,Type 1, Type 2, Catch Rate, Base Exp. yield
-    //  , EV Yield 1(left to right), EV Yield 2, Gender value, Base friendship
-    //  , Level up type, Egg group 1, Egg group 2};
+    // Pokemon Ints format {Base HP,Base Attack, Base Defense, Base Special attack
+    //  , Base Special Defense, Base Speed, Type 1, Type 2 (If none type Type 1 again), Catch Rate
+    //  , Base Exp. yield (Gen V+), EV Yield 1(First != 0 left to right), EV Yield 2, Gender value
+    //  , Lower hatch time value / 256 (round up), Base friendship, Level up type, Egg group 1
+    //  , Egg group 2};
     // Based on Bulbapedia's 'Pokémon base stats data structure in Generation III'
     
-    //Pokemon Strings format {Species Name, Capitalized Abreviated EV 1 type (left to right)
-    //  , EV 2 type, Held item 1, Held item 2, Ability 1, Ability 2};
+    // Pokemon Strings format {Species Name, Pokemon Category
+    //  , Capitalized Abreviated EV 1 type (left to right), EV 2 type, Held item 1, Held item 2
+    //  , Ability 1, Ability 2};
     
-    int[] bulbasaurInts = {45,49,49,65,65,45,12,3,45,64,1,0,31,70,3,1,8};
-    String[] bulbasaurStrings = {"Bulbasaur","SA",null,null,null,"Overgrow",null};
+    int[] bulbasaurInts = {45,49,49,65,65,45,12,3,45,64,1,0,31,21,70,3,1,8};
+    String[] bulbasaurStrings = {"Bulbasaur","Seed Pokémon","SA",null,null,null,"Overgrow",null};
+    int[] ivysaurInts = {60,62,63,80,80,60,12,3,45,142,1,1,31,21,70,3,1,8};
+    String[] ivysaurStrings = {"Ivysaur","Seed Pokémon","SA","SD",null,null,"Overgrow",null};
+    int[] venusaurInts = {80,82,83,100,100,80,12,3,45,236,2,1,31,21,70,3,1,8};
+    String[] venusaurStrings = {"Venusaur","Seed Pokémon","SA","SD",null,null,"Overgrow",null};
+    int[] charmanderInts = {39,52,43,60,50,65,10,10,45,62,1,0,31,21,70,3,1,15};
+    String[] charmanderStrings = {"Charmander","Lizard Pokémon","S",null,null,null,"Blaze",null};
+    int[] charmeleonInts = {58,64,58,80,65,80,10,10,45,142,1,1,31,21,70,3,1,15};
+    String[] charmeleonStrings = {"Charmeleon","Flame Pokémon","SA","S",null,null,"Blaze",null};
     int[][] dataInts = new int[151][];
     String[][] dataStrings = new String[151][];
     /**

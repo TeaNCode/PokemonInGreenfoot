@@ -10,6 +10,7 @@ public class Button extends Actor
 {
     private String type;
     private boolean delete;
+    private Gameworld world;
     /**
      * Executed when Button added to world.
      * Button type needs to be specified
@@ -17,6 +18,15 @@ public class Button extends Actor
     public Button(String typ)
     {
         type = typ; //Store type for later use
+        world = null;
+        setPicture();
+        delete = false;
+    }
+
+    public Button(String typ, Gameworld wrld)
+    {
+        type = typ; //Store type for later use
+        world = wrld;
         setPicture();
         delete = false;
     }
@@ -35,6 +45,18 @@ public class Button extends Actor
             lowerCase();
         else if(Greenfoot.mouseClicked(this) && type == "uppercase")
             upperCase();
+        else if(Greenfoot.mouseClicked(this) && type == "male")
+        {
+            SaveData savedata = new SaveData();
+            savedata.Female = false;
+            if(world != null) world.pickName();
+        }
+        else if(Greenfoot.mouseClicked(this) && type == "female")
+        {
+            SaveData savedata = new SaveData();
+            savedata.Female = true;
+            if(world != null) world.pickName();
+        }
         if(delete) getWorld().removeObject(this);
     }    
 
@@ -51,6 +73,18 @@ public class Button extends Actor
                     "lower case",40,Color.BLACK,new Color(0,0,0,0)));
         else if(type == "uppercase") setImage(new GreenfootImage(
                     "UPPER CASE",40,Color.BLACK,new Color(0,0,0,0)));
+        else if(type == "male")
+        {
+            GreenfootImage Male = new GreenfootImage("Male.png");
+            Male.scale(144,220);
+            setImage(Male);
+        }
+        else if(type == "female")
+        {
+            GreenfootImage Female = new GreenfootImage("Female.png");
+            Female.scale(148,220);
+            setImage(Female);
+        }
     }
 
     public void lowerCase()

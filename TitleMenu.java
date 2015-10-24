@@ -20,5 +20,6 @@ public class TitleMenu extends World
         addObject(new Subtitle(),getWidth() / 2, getHeight() * 6 / 10);
         addObject(new Github(),415,385);
         //Greenfoot.setWorld(new Gameworld("newgame")); //For quick testing
+        //Greenfoot.start();
     }
 }

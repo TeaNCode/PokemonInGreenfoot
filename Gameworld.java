@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.io.File;
+
 /**
  * Write a description of class Gameworld here.
  * 
@@ -18,7 +18,7 @@ public class Gameworld extends World
         if(typ == "newgame")
         {
             SaveData savedata = new SaveData(true);
-            pickName();
+            pickGender();
         }
         else if(typ == "continuegame")
         {
@@ -32,10 +32,18 @@ public class Gameworld extends World
         Save save = new Save("Save.txt");
         save.assembleSave();
     }
-
+    
+    public void pickGender()
+    {
+        removeObjects(getObjects(null));
+        setBackground("White.png");
+        addObject(new Button("male",this),100,200);
+        addObject(new Button("female",this),500,200);
+    }
+    
     public void pickName()
     {
-        setBackground("White.png");
+        removeObjects(getObjects(null));
         for(int i = 1; i < 11;  i++) addObject(new Letter("PDisplay" + i,"a",i),53 + (i * 45),75);
         String[] letters = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
                 "R","S","T","U","V","W","X","Y","Z"};
@@ -52,5 +60,7 @@ public class Gameworld extends World
                 75 + (i * 35),250);
         addObject(new Letter("PName","0",39),390,250);
         addObject(new Button("lowercase"),150,300);
+        addObject(new Letter("PDel"),500,250);
+        addObject(new Letter("PDone"),550,380);
     }
 }

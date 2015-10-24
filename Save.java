@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.File;
 /**
  * Write a description of class Save here.
  * 
@@ -47,21 +48,38 @@ public class Save
     }
 
     /**
-     * Assemble the variables in a string format for writing to text file
+     * Assemble the variables in a string format for writing to text file and then writes it,
+     * with a backup created encase saving fails
      */
     public void assembleSave()
     {
         SaveData savedata = new SaveData(false);
-        toSave = savedata.Name + " " + String.valueOf(savedata.Female) + " " + 
-        String.valueOf(savedata.Boulder) + " " + String.valueOf(savedata.Cascade) + " " +
-        String.valueOf(savedata.Thunder) + " \n" + String.valueOf(savedata.Rainbow);
+        toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
+        String.valueOf(savedata.SecretID) + " " + String.valueOf(savedata.Money) + " " + 
+        String.valueOf(savedata.Female) + " " +String.valueOf(savedata.Boulder) + " \n" + 
+        String.valueOf(savedata.Cascade) + " " + String.valueOf(savedata.Thunder) + " " + 
+        String.valueOf(savedata.Rainbow) + " " + String.valueOf(savedata.Soul) + " " + 
+        String.valueOf(savedata.Marsh) + " " + String.valueOf(savedata.Volcano) + " \n" +
+        String.valueOf(savedata.Earth) + " ";
         try
         {
+            File save = new File(path);
+            File saveBackup = new File(path + ".backup");
+            if(save.isFile()) 
+            {
+                if(save.canRead() && save.canWrite()) save.renameTo(saveBackup);
+                else System.out.println("Fatal error: Save.txt exists but cannot be read/writen."
+                +"\nPlease try running this project at a different file location");
+            }
             writeToFile(toSave);
+            saveBackup.delete();
         }
         catch (IOException e)
         {
-            System.out.println(e);
+            System.out.println(e + "\nSave file will be replaced from backup");
+            File saveBackup = new File(path + ".backup");
+            File save = new File(path);
+            saveBackup.renameTo(save);
         }
     }
 }

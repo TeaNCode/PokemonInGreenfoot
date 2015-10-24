@@ -1,3 +1,4 @@
+import greenfoot.Greenfoot;
 /**
  * Write a description of class SaveData here.
  * 
@@ -8,6 +9,9 @@ public class SaveData
 {
     static Letter[] Letters = new Letter[40];
     static String Name;
+    static int TrainerID;
+    static int SecretID;
+    static int Money;
     static boolean Female;
     static boolean Boulder;
     static boolean Cascade;
@@ -26,6 +30,9 @@ public class SaveData
         if(New)
         {
             Name = "nullERRORplox";
+            TrainerID = Greenfoot.getRandomNumber(65536);
+            SecretID = Greenfoot.getRandomNumber(65536);
+            Money = 0;
             Female = false;
             Boulder = false;
             Cascade = false;

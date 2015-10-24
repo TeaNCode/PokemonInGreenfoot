@@ -7,5 +7,5 @@ comment1.target=void\ writeToFile(java.lang.String)
 comment1.text=\r\n\ Writes\ a\ String\ 'textLine'\ to\ a\ text\ document\ at\ 'path'\r\n
 comment2.params=
 comment2.target=void\ assembleSave()
-comment2.text=\r\n\ Assemble\ the\ variables\ in\ a\ string\ format\ for\ writing\ to\ text\ file\r\n
+comment2.text=\r\n\ Assemble\ the\ variables\ in\ a\ string\ format\ for\ writing\ to\ text\ file\ and\ then\ writes\ it,\r\n\ with\ a\ backup\ created\ encase\ saving\ fails\r\n
 numComments=3
