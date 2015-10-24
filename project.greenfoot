@@ -1,11 +1,10 @@
 #Greenfoot properties
-#Sat Oct 24 00:17:13 CDT 2015
+#Sat Oct 24 12:35:25 CDT 2015
 target12.editor.height=700
 target10.editor.width=900
 target2.width=80
 target8.name=Letter
 target11.y=10
-class.Textbox.image=White600x100.png
 target11.x=70
 target5.naviview.expanded=true
 dependency12.type=UsesDependency
