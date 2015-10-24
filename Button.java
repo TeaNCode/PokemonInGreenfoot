@@ -75,13 +75,13 @@ public class Button extends Actor
                     "UPPER CASE",40,Color.BLACK,new Color(0,0,0,0)));
         else if(type == "male")
         {
-            GreenfootImage Male = new GreenfootImage("Male.png");
+            GreenfootImage Male = new GreenfootImage("male.png");
             Male.scale(144,220);
             setImage(Male);
         }
         else if(type == "female")
         {
-            GreenfootImage Female = new GreenfootImage("Female.png");
+            GreenfootImage Female = new GreenfootImage("female.png");
             Female.scale(148,220);
             setImage(Female);
         }

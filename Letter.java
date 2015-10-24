@@ -111,6 +111,7 @@ public class Letter extends Actor
         if(savedata.Name != "nullERRORplox")
         {
             savedata.Name = savedata.Name.substring(0,charToWrite);
+            getWorld().setBackground("space1.jpg");
             getWorld().removeObjects(getWorld().getObjects(null));
         }
     }
