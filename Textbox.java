@@ -29,8 +29,8 @@ public class Textbox extends Actor
         //Background.drawImage(Line2,300,350);
         //setImage(Background);
         Background.setColor(Color.BLACK);
-        Background.drawString(line1,300,300);
-        if(line2 != null) Background.drawString(line2,300,350);
+        Background.drawString(line1,10,25);
+        if(line2 != null) Background.drawString(line2,10,75);
         setImage(Background);
     }
     
