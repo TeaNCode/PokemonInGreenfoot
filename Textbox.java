@@ -13,6 +13,8 @@ public class Textbox extends Actor
     public String text;
     public String line1;
     public String line2;
+    private boolean next;
+    private Scanner scanner;
     public Textbox(String txt)
     {
         GreenfootImage Background = new GreenfootImage("White600x100.png");
@@ -20,7 +22,7 @@ public class Textbox extends Actor
         text = txt;
         line1 = null;
         line2 = null;
-        Scanner scanner = new Scanner(text);
+        scanner = new Scanner(text);
         line1 = scanner.nextLine();
         if(scanner.hasNext()) line2 = scanner.nextLine();
         //GreenfootImage Line1 = new GreenfootImage(line1,25,Color.BLACK,new Color(0,0,0,0));
@@ -32,6 +34,7 @@ public class Textbox extends Actor
         Background.drawString(line1,10,25);
         if(line2 != null) Background.drawString(line2,10,75);
         setImage(Background);
+        if(scanner.hasNext()) next = true;
     }
     
     /**

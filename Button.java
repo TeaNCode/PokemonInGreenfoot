@@ -11,6 +11,7 @@ public class Button extends Actor
     private String type;
     private boolean delete;
     private Gameworld world;
+    private Textbox textbox;
     /**
      * Executed when Button added to world.
      * Button type needs to be specified
@@ -18,7 +19,6 @@ public class Button extends Actor
     public Button(String typ)
     {
         type = typ; //Store type for later use
-        world = null;
         setPicture();
         delete = false;
     }
@@ -31,33 +31,37 @@ public class Button extends Actor
         delete = false;
     }
 
+    public Button(String typ, Textbox Textbox)
+    {
+        type = typ; //Store type for later use
+        textbox = Textbox;
+        setPicture();
+        delete = false;
+    }
+
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this) && type == "newgame") Greenfoot.setWorld
-            (new Gameworld("newgame"));
-        else if(Greenfoot.mouseClicked(this) && type == "continuegame") 
-            Greenfoot.setWorld(new Gameworld("continuegame"));
-        else if(Greenfoot.mouseClicked(this) && type == "lowercase")
-            lowerCase();
-        else if(Greenfoot.mouseClicked(this) && type == "uppercase")
-            upperCase();
-        else if(Greenfoot.mouseClicked(this) && type == "male")
+        if(Greenfoot.mouseClicked(this))
         {
             SaveData savedata = new SaveData();
-            savedata.Female = false;
-            if(world != null) world.pickName();
+            switch(type)
+            {
+                case "newgame": Greenfoot.setWorld(new Gameworld("newgame")); break;
+                case "continuegame": Greenfoot.setWorld(new Gameworld("continuegame"));
+                break;
+                case "lowercase": lowerCase(); break;
+                case "uppercase": upperCase(); break;
+                case "male": savedata.Female = false;
+                world.pickName(); break;
+                case "female": savedata.Female = true;
+                world.pickName(); break;
+            }
         }
-        else if(Greenfoot.mouseClicked(this) && type == "female")
-        {
-            SaveData savedata = new SaveData();
-            savedata.Female = true;
-            if(world != null) world.pickName();
-        }
-        if(delete) getWorld().removeObject(this);
+        if(delete) getWorld().removeObject(this);
     }    
 
     /**
@@ -65,25 +69,22 @@ public class Button extends Actor
      */
     public void setPicture()
     {
-        if(type == "newgame") setImage(new GreenfootImage("New Game"
-                ,40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
-        else if(type == "continuegame") setImage(new GreenfootImage(
-                    "Continue Game",40,Color.LIGHT_GRAY,new Color(0,0,0,0)));
-        else if(type == "lowercase") setImage(new GreenfootImage(
-                    "lower case",40,Color.BLACK,new Color(0,0,0,0)));
-        else if(type == "uppercase") setImage(new GreenfootImage(
-                    "UPPER CASE",40,Color.BLACK,new Color(0,0,0,0)));
-        else if(type == "male")
+        switch(type)
         {
-            GreenfootImage Male = new GreenfootImage("male.png");
+            case "newgame": setImage(new GreenfootImage("New Game",40,Color.LIGHT_GRAY,
+                    new Color(0,0,0,0))); break;
+            case "continuegame": setImage(new GreenfootImage("Continue Game",40,Color.LIGHT_GRAY,
+                    new Color(0,0,0,0))); break;
+            case "lowercase": setImage(new GreenfootImage("lower case",40,Color.BLACK,
+                    new Color(0,0,0,0))); break;
+            case "uppername": setImage(new GreenfootImage("UPPER CASE",40,Color.BLACK,
+                    new Color(0,0,0,0))); break;
+            case "male": GreenfootImage Male = new GreenfootImage("male.png");
             Male.scale(144,220);
-            setImage(Male);
-        }
-        else if(type == "female")
-        {
-            GreenfootImage Female = new GreenfootImage("female.png");
+            setImage(Male); break;
+            case "female": GreenfootImage Female = new GreenfootImage("female.png");
             Female.scale(148,220);
-            setImage(Female);
+            setImage(Female); break;
         }
     }
 

@@ -1,13 +1,15 @@
 #BlueJ class context
-comment0.params=typ
-comment0.target=Gameworld(java.lang.String)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Gameworld.\r\n\ \r\n
-comment1.params=
-comment1.target=void\ act()
+comment0.target=Gameworld
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Gameworld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=typ
+comment1.target=Gameworld(java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Gameworld.\r\n\ \r\n
 comment2.params=
-comment2.target=void\ Save()
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ pickGender()
+comment3.target=void\ Save()
 comment4.params=
-comment4.target=void\ pickName()
-numComments=5
+comment4.target=void\ pickGender()
+comment5.params=
+comment5.target=void\ pickName()
+numComments=6
