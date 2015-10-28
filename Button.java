@@ -61,7 +61,9 @@ public class Button extends Actor
                 world.pickName(); break;
             }
         }
-        if(delete) getWorld().removeObject(this);
+        if(delete) 
+getWorld().
+removeObject(this);
     }    
 
     /**
@@ -77,7 +79,7 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "lowercase": setImage(new GreenfootImage("lower case",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "uppername": setImage(new GreenfootImage("UPPER CASE",40,Color.BLACK,
+            case "uppercase": setImage(new GreenfootImage("UPPER CASE",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "male": GreenfootImage Male = new GreenfootImage("male.png");
             Male.scale(144,220);

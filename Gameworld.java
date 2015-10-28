@@ -29,8 +29,8 @@ public class Gameworld extends World
     
     public void act()
     {
-       if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your own "
-       + "character!\n How do they look?"),300,350);
+      //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
+      //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
     }
 
     public void Save()

@@ -9,7 +9,7 @@ public class PokemonData
     // Pokemon Ints format {Base HP,Base Attack, Base Defense, Base Special attack
     //  , Base Special Defense, Base Speed, Type 1, Type 2 (If none type Type 1 again), Catch Rate
     //  , Base Exp. yield (Gen V+), EV Yield 1(First != 0 left to right), EV Yield 2, Gender value
-    //  , Lower hatch time value / 256 (round up), Base friendship, Level up type, Egg group 1
+    //  , Lower hatch time value / 255, Base friendship, Level up type, Egg group 1
     //  , Egg group 2};
     // Based on Bulbapedia's 'Pokémon base stats data structure in Generation III'
     

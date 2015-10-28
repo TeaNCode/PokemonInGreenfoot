@@ -15,34 +15,54 @@ public class Textbox extends Actor
     public String line2;
     private boolean next;
     private Scanner scanner;
+    private int count;
     public Textbox(String txt)
     {
-        GreenfootImage Background = new GreenfootImage("White600x100.png");
-        setImage(Background);
         text = txt;
         line1 = null;
         line2 = null;
         scanner = new Scanner(text);
         line1 = scanner.nextLine();
         if(scanner.hasNext()) line2 = scanner.nextLine();
-        //GreenfootImage Line1 = new GreenfootImage(line1,25,Color.BLACK,new Color(0,0,0,0));
-        //GreenfootImage Line2 = new GreenfootImage(line2,25,Color.BLACK,new Color(0,0,0,0));
-        //Background.drawImage(Line1,300,300);
-        //Background.drawImage(Line2,300,350);
-        //setImage(Background);
-        Background.setColor(Color.BLACK);
-        Background.drawString(line1,10,25);
-        if(line2 != null) Background.drawString(line2,10,75);
-        setImage(Background);
+        setImage(updateImg(""));
         if(scanner.hasNext()) next = true;
+        count = 0;
     }
-    
+
     /**
      * Act - do whatever the Textbox wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        
+        if(Greenfoot.mouseClicked(this) && next)
+        {
+            line1 = null;
+            line2 = null;
+            line1 = scanner.nextLine();
+            if(scanner.hasNext()) line2 = scanner.nextLine();
+            setImage(updateImg(""));
+            if(scanner.hasNext()) next = true;
+            else next = false;
+            count = 0;
+        }
+        else if(Greenfoot.mouseClicked(this)) getWorld().removeObject(this);
+        if(next)
+        {
+            count++;
+            if(count < 31) setImage(updateImg("T"));
+            else if(count == 60)count = 0;
+            else setImage(updateImg("TE"));
+        }
     }    
+
+    public GreenfootImage updateImg(String end)
+    {
+        GreenfootImage Background = new GreenfootImage("White600x100" + end + ".png"); 
+        Background.setColor(Color.BLACK);
+        Background.setFont(new Font("Serif",Font.PLAIN,20));
+        Background.drawString(line1,10,25);
+        if(line2 != null) Background.drawString(line2,10,75);
+        return Background;
+    }
 }
