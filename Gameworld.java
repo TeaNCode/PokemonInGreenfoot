@@ -26,11 +26,11 @@ public class Gameworld extends World
         }
         else System.out.println("Fatal Error: invalid save-handling type");
     }
-    
+
     public void act()
     {
-      //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
-      //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
+        //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
+        //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
     }
 
     public void Save()
@@ -38,7 +38,7 @@ public class Gameworld extends World
         Save save = new Save("Save.txt");
         save.assembleSave();
     }
-    
+
     public void pickGender()
     {
         removeObjects(getObjects(null));
@@ -46,7 +46,7 @@ public class Gameworld extends World
         addObject(new Button("male",this),100,200);
         addObject(new Button("female",this),500,200);
     }
-    
+
     public void pickName()
     {
         removeObjects(getObjects(null));

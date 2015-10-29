@@ -65,4 +65,14 @@ public class Textbox extends Actor
         if(line2 != null) Background.drawString(line2,10,75);
         return Background;
     }
+
+    public void yes(String acion)
+    {
+
+    }
+
+    public void no(String acion)
+    {
+
+    }
 }

@@ -12,6 +12,8 @@ public class Button extends Actor
     private boolean delete;
     private Gameworld world;
     private Textbox textbox;
+    private String display;
+    private String action;
     /**
      * Executed when Button added to world.
      * Button type needs to be specified
@@ -31,10 +33,12 @@ public class Button extends Actor
         delete = false;
     }
 
-    public Button(String typ, Textbox Textbox)
+    public Button(String typ, Textbox Textbox, String disply,String acion)
     {
         type = typ; //Store type for later use
         textbox = Textbox;
+        display = disply;
+        action = acion;
         setPicture();
         delete = false;
     }
@@ -48,22 +52,24 @@ public class Button extends Actor
         if(Greenfoot.mouseClicked(this))
         {
             SaveData savedata = new SaveData();
+            ObjectStorage objectStorage = new ObjectStorage();
             switch(type)
             {
-                case "newgame": Greenfoot.setWorld(new Gameworld("newgame")); break;
-                case "continuegame": Greenfoot.setWorld(new Gameworld("continuegame"));
-                break;
+                case "newgame": objectStorage.theGame = new Gameworld("newgame"); 
+                Greenfoot.setWorld(objectStorage.theGame); break;
+                case "continuegame": objectStorage.theGame = new Gameworld("continuegame"); 
+                Greenfoot.setWorld(objectStorage.theGame); break;
                 case "lowercase": lowerCase(); break;
                 case "uppercase": upperCase(); break;
                 case "male": savedata.Female = false;
                 world.pickName(); break;
                 case "female": savedata.Female = true;
                 world.pickName(); break;
+                case "tyes": textbox.yes(action); break;
+                case "tno": textbox.no(action); break;
             }
         }
-        if(delete) 
-getWorld().
-removeObject(this);
+        if(delete) getWorld().removeObject(this);
     }    
 
     /**
@@ -87,6 +93,10 @@ removeObject(this);
             case "female": GreenfootImage Female = new GreenfootImage("female.png");
             Female.scale(148,220);
             setImage(Female); break;
+            case "tyes": setImage(new GreenfootImage(display,40,Color.BLACK,new Color(
+                        0,0,0,0))); break;
+            case "tno": setImage(new GreenfootImage(display,40,Color.BLACK,new Color(
+                        0,0,0,0))); break;
         }
     }
 
