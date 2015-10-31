@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.awt.Color;
+import java.awt.Font;
 /**
  * Write a description of class Button here.
  * 
@@ -10,7 +11,6 @@ public class Button extends Actor
 {
     private String type;
     private boolean delete;
-    private Gameworld world;
     private Textbox textbox;
     private String display;
     private String action;
@@ -24,16 +24,8 @@ public class Button extends Actor
         setPicture();
         delete = false;
     }
-
-    public Button(String typ, Gameworld wrld)
-    {
-        type = typ; //Store type for later use
-        world = wrld;
-        setPicture();
-        delete = false;
-    }
-
-    public Button(String typ, Textbox Textbox, String disply,String acion)
+    
+    public Button(String typ, Textbox Textbox, String disply, String acion)
     {
         type = typ; //Store type for later use
         textbox = Textbox;
@@ -61,10 +53,10 @@ public class Button extends Actor
                 Greenfoot.setWorld(objectStorage.theGame); break;
                 case "lowercase": lowerCase(); break;
                 case "uppercase": upperCase(); break;
-                case "male": savedata.Female = false;
-                world.pickName(); break;
-                case "female": savedata.Female = true;
-                world.pickName(); break;
+                case "male": savedata.Gender = "boy";
+                confirmGender(); break;
+                case "female": savedata.Gender = "girl";
+                confirmGender(); break;
                 case "tyes": textbox.yes(action); break;
                 case "tno": textbox.no(action); break;
             }
@@ -93,10 +85,10 @@ public class Button extends Actor
             case "female": GreenfootImage Female = new GreenfootImage("female.png");
             Female.scale(148,220);
             setImage(Female); break;
-            case "tyes": setImage(new GreenfootImage(display,40,Color.BLACK,new Color(
-                        0,0,0,0))); break;
-            case "tno": setImage(new GreenfootImage(display,40,Color.BLACK,new Color(
-                        0,0,0,0))); break;
+            case "tyes": setImage(new GreenfootImage(display,25,Color.BLACK,new Color(0,0,0,0)));
+            break;
+            case "tno": setImage(new GreenfootImage(display,25,Color.BLACK,new Color(0,0,0,0)));
+            break;
         }
     }
 
@@ -128,5 +120,13 @@ public class Button extends Actor
         }
         getWorld().addObject(new Button("lowercase"),getX(),getY());
         delete = true;
+    }
+    
+    public void confirmGender()
+    {
+        ObjectStorage objectstorage = new ObjectStorage();
+        SaveData savedata = new SaveData();
+        objectstorage.theGame.addObject(new Textbox("So you are a " + savedata.Gender + ".\n"
+        + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }

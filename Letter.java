@@ -111,8 +111,15 @@ public class Letter extends Actor
         if(savedata.Name != "nullERRORplox")
         {
             savedata.Name = savedata.Name.substring(0,charToWrite);
-            getWorld().setBackground("space1.jpg");
-            getWorld().removeObjects(getWorld().getObjects(null));
+            confirmName();
         }
+    }
+    
+    public void confirmName()
+    {
+        ObjectStorage objectstorage = new ObjectStorage();
+        SaveData savedata = new SaveData();
+        objectstorage.theGame.addObject(new Textbox("So your name is " + savedata.Name + ".\n"
+        + "BUTTON.CONFIRMATION" + "\nname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }

@@ -10,22 +10,38 @@ import java.util.Scanner;
  */
 public class Textbox extends Actor
 {
-    public String text;
-    public String line1;
-    public String line2;
+    private String text;
+    private String line1;
+    private String line2;
+    private String yes;
+    private String no;
     private boolean next;
     private Scanner scanner;
     private int count;
+    private boolean once;
+    private Button bYes;
+    private Button bNo;
+    private boolean confirmation;
     public Textbox(String txt)
     {
         text = txt;
+        once = true;
+        confirmation = false;
         line1 = null;
         line2 = null;
         scanner = new Scanner(text);
         line1 = scanner.nextLine();
         if(scanner.hasNext()) line2 = scanner.nextLine();
-        setImage(updateImg(""));
-        if(scanner.hasNext()) next = true;
+        if(line2.equals("BUTTON.CONFIRMATION"))
+        {
+            once = false;
+            line2 = null;
+        }
+        else
+        {
+            setImage(updateImg(""));
+            if(scanner.hasNext()) next = true;
+        }
         count = 0;
     }
 
@@ -35,6 +51,11 @@ public class Textbox extends Actor
      */
     public void act() 
     {
+        if(!once)
+        {
+           once = true;
+           confirmation();
+        }
         if(Greenfoot.mouseClicked(this) && next)
         {
             line1 = null;
@@ -46,7 +67,7 @@ public class Textbox extends Actor
             else next = false;
             count = 0;
         }
-        else if(Greenfoot.mouseClicked(this)) getWorld().removeObject(this);
+        else if(Greenfoot.mouseClicked(this) && !confirmation) getWorld().removeObject(this);
         if(next)
         {
             count++;
@@ -65,14 +86,40 @@ public class Textbox extends Actor
         if(line2 != null) Background.drawString(line2,10,75);
         return Background;
     }
+    
+    public void confirmation()
+    {
+        ObjectStorage objectstorage = new ObjectStorage();
+        confirmation = true;
+        String purpose = scanner.nextLine();
+        line2 = scanner.nextLine();
+        String yes = scanner.nextLine();
+        String no = scanner.nextLine();
+        bYes = new Button("tyes",this,yes,purpose);
+        bNo = new Button("tno",this,no,purpose);
+        objectstorage.theGame.addObject(bYes,300,375);
+        objectstorage.theGame.addObject(bNo,400,375);
+        setImage(updateImg(""));
+    }
 
     public void yes(String acion)
     {
-
+        if(acion.equals("gender"))
+        {
+           ObjectStorage objectstorage = new ObjectStorage();
+           objectstorage.theGame.pickName();
+           getWorld().removeObject(this);
+        }
+        else if(acion.equals("name"))
+        {
+            getWorld().setBackground("space1.jpg");
+            getWorld().removeObjects(getWorld().getObjects(null));
+        }
     }
 
     public void no(String acion)
     {
-
+        if(acion.equals("gender")) getWorld().removeObject(this);
+        else if(acion.equals("name")) getWorld().removeObject(this);
     }
 }

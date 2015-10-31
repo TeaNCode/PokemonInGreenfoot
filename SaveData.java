@@ -12,7 +12,7 @@ public class SaveData
     static int TrainerID;
     static int SecretID;
     static int Money;
-    static boolean Female;
+    static String Gender;
     static boolean Boulder;
     static boolean Cascade;
     static boolean Thunder;
@@ -33,7 +33,7 @@ public class SaveData
             TrainerID = Greenfoot.getRandomNumber(65536);
             SecretID = Greenfoot.getRandomNumber(65536);
             Money = 0;
-            Female = false;
+            Gender = "boy";
             Boulder = false;
             Cascade = false;
             Thunder = false;

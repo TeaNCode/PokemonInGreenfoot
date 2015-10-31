@@ -43,8 +43,8 @@ public class Gameworld extends World
     {
         removeObjects(getObjects(null));
         setBackground("White.png");
-        addObject(new Button("male",this),100,200);
-        addObject(new Button("female",this),500,200);
+        addObject(new Button("male"),100,200);
+        addObject(new Button("female"),500,200);
     }
 
     public void pickName()
