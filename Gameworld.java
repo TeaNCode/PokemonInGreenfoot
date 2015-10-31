@@ -47,49 +47,26 @@ public class Gameworld extends World
         addObject(new Button("female"),500,200);
     }
 
-    public void pickName()
+    public void addKeyboard(String pre)
     {
         removeObjects(getObjects(null));
-        addObject(new Letter("PDone"),550,380);
-        for(int i = 1; i < 11;  i++) addObject(new Letter("PDisplay" + i,"a",i),53 + (i * 45),75);
+        addObject(new Letter(pre + "Done"),550,380);
+        for(int i = 1; i < 11;  i++) addObject(new Letter(pre + "Display" + i,"a",i),53 + (i * 45),75);
         String[] letters = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
                 "R","S","T","U","V","W","X","Y","Z"};
         for(int i = 0; i < 26; i++)
         {
-            if(i < 15) addObject(new Letter("PName",letters[i],i),75 + (i * 35),150);
-            else addObject(new Letter("PName",letters[i],i),75 + ((i - 15) * 35),200);
+            if(i < 15) addObject(new Letter(pre + "Name",letters[i],i),75 + (i * 35),150);
+            else addObject(new Letter(pre + "Name",letters[i],i),75 + ((i - 15) * 35),200);
         }
-        addObject(new Letter("PName",",",26),460,200);
-        addObject(new Letter("PName",".",27),495,200);
-        addObject(new Letter("PName","?",28),530,200);
-        addObject(new Letter("PName","!",29),565,200);
-        for(int i = 0; i < 9; i++) addObject(new Letter("PName",Integer.toString(i + 1),30 + i),
+        addObject(new Letter(pre + "Name",",",26),460,200);
+        addObject(new Letter(pre + "Name",".",27),495,200);
+        addObject(new Letter(pre + "Name","?",28),530,200);
+        addObject(new Letter(pre + "Name","!",29),565,200);
+        for(int i = 0; i < 9; i++) addObject(new Letter(pre + "Name",Integer.toString(i + 1),30 + i),
                 75 + (i * 35),250);
-        addObject(new Letter("PName","0",39),390,250);
+        addObject(new Letter(pre + "Name","0",39),390,250);
         addObject(new Button("lowercase"),150,300);
-        addObject(new Letter("PDel"),500,250);
-    }
-    
-    public void pickRName()
-    {
-        removeObjects(getObjects(null));
-        addObject(new Letter("RDone"),550,380);
-        for(int i = 1; i < 11;  i++) addObject(new Letter("RDisplay" + i,"a",i),53 + (i * 45),75);
-        String[] letters = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
-                "R","S","T","U","V","W","X","Y","Z"};
-        for(int i = 0; i < 26; i++)
-        {
-            if(i < 15) addObject(new Letter("RName",letters[i],i),75 + (i * 35),150);
-            else addObject(new Letter("RName",letters[i],i),75 + ((i - 15) * 35),200);
-        }
-        addObject(new Letter("RName",",",26),460,200);
-        addObject(new Letter("RName",".",27),495,200);
-        addObject(new Letter("RName","?",28),530,200);
-        addObject(new Letter("RName","!",29),565,200);
-        for(int i = 0; i < 9; i++) addObject(new Letter("RName",Integer.toString(i + 1),30 + i),
-                75 + (i * 35),250);
-        addObject(new Letter("RName","0",39),390,250);
-        addObject(new Button("lowercase"),150,300);
-        addObject(new Letter("RDel"),500,250);
+        addObject(new Letter(pre + "Del"),500,250);
     }
 }

@@ -53,9 +53,9 @@ public class Button extends Actor
                 Greenfoot.setWorld(objectStorage.theGame); break;
                 case "lowercase": lowerCase(); break;
                 case "uppercase": upperCase(); break;
-                case "male": savedata.Gender = "boy";
+                case "male": savedata.Male = true;
                 confirmGender(); break;
-                case "female": savedata.Gender = "girl";
+                case "female": savedata.Male = false;
                 confirmGender(); break;
                 case "tyes": textbox.yes(action); break;
                 case "tno": textbox.no(action); break;
@@ -126,7 +126,11 @@ public class Button extends Actor
     {
         ObjectStorage objectstorage = new ObjectStorage();
         SaveData savedata = new SaveData();
-        objectstorage.theGame.addObject(new Textbox("So you are a " + savedata.Gender + ".\n"
+        if(savedata.Male)
+        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
+        + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
+        else
+        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }

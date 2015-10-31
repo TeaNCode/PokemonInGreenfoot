@@ -102,33 +102,32 @@ public class Textbox extends Actor
         setImage(updateImg(""));
     }
 
-    public void yes(String acion)
+    public void yes(String action)
     {
-        if(acion.equals("gender"))
+        if(action.equals("gender"))
         {
            ObjectStorage objectstorage = new ObjectStorage();
-           objectstorage.theGame.pickName();
+           objectstorage.theGame.addKeyboard("P");
         }
-        else if(acion.equals("name"))
+        else if(action.equals("name"))
         {
+           ObjectStorage objectstorage = new ObjectStorage();
+           objectstorage.done.cutName("P");
+           objectstorage.theGame.addKeyboard("R");
+        }
+        else if(action == "rname")
+        {
+            ObjectStorage objectstorage = new ObjectStorage();
+            objectstorage.done.cutName("R");
             getWorld().setBackground("space1.jpg");
             getWorld().removeObjects(getWorld().getObjects(null));
         }
     }
 
-    public void no(String acion)
+    public void no(String action)
     {
-        if(acion.equals("gender"))
-        {
             getWorld().removeObject(bYes);
             getWorld().removeObject(bNo);
             getWorld().removeObject(this);
-        }
-        else if(acion.equals("name"))
-        {
-            getWorld().removeObject(bYes);
-            getWorld().removeObject(bNo);
-            getWorld().removeObject(this);
-        }
     }
 }

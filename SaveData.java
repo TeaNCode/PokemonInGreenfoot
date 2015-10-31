@@ -13,7 +13,7 @@ public class SaveData
     static String RName;
     static int SecretID;
     static int Money;
-    static String Gender;
+    static boolean Male;
     static boolean Boulder;
     static boolean Cascade;
     static boolean Thunder;
@@ -35,7 +35,7 @@ public class SaveData
             RName = "nullERRORplox";
             SecretID = Greenfoot.getRandomNumber(65536);
             Money = 0;
-            Gender = "boy";
+            Male = true;
             Boulder = false;
             Cascade = false;
             Thunder = false;

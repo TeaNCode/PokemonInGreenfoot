@@ -56,7 +56,7 @@ public class Save
         SaveData savedata = new SaveData(false);
         toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
         savedata.RName + " " + String.valueOf(savedata.SecretID) + " " + 
-        String.valueOf(savedata.Money) + " " + savedata.Gender + " \n" + 
+        String.valueOf(savedata.Money) + " " + String.valueOf(savedata.Male) + " \n" + 
         String.valueOf(savedata.Boulder) + " " + String.valueOf(savedata.Cascade) + " " + 
         String.valueOf(savedata.Thunder) + " " + String.valueOf(savedata.Rainbow) + " " + 
         String.valueOf(savedata.Soul) + " " + String.valueOf(savedata.Marsh) + " \n" + 
