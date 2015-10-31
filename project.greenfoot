@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sat Oct 31 10:08:59 CDT 2015
+#Sat Oct 31 17:27:35 CDT 2015
 target2.name=SaveReader
 target9.name=Button
 dependency11.type=UsesDependency
@@ -44,6 +44,7 @@ dependency17.type=UsesDependency
 dependency14.from=SaveData
 package.numTargets=14
 target13.type=ClassTarget
+dependency24.type=UsesDependency
 dependency21.from=Textbox
 target12.naviview.expanded=true
 dependency9.to=Save
@@ -173,7 +174,7 @@ target14.x=100
 target10.type=ClassTarget
 dependency18.to=ObjectStorage
 dependency21.type=UsesDependency
-package.numDependencies=23
+package.numDependencies=24
 target10.y=10
 target3.type=ClassTarget
 target10.x=70
@@ -213,6 +214,7 @@ target3.width=80
 dependency17.from=Button
 dependency23.to=Textbox
 dependency20.type=UsesDependency
+dependency24.from=ObjectStorage
 target2.type=ClassTarget
 target9.type=ClassTarget
 target1.editor.height=700
@@ -260,6 +262,7 @@ target13.showInterface=false
 target4.showInterface=false
 dependency23.from=Letter
 target11.height=50
+dependency24.to=Letter
 target1.type=ClassTarget
 target9.width=80
 target8.type=ClassTarget

@@ -62,13 +62,19 @@ public class Letter extends Actor
         }
         else if(type.contains("Del"))
         {
+            //System.out.println(type + " contains Del");
             if(Greenfoot.mouseClicked(this))delChar();
         }
         else if(type.contains("Done"))
         {
+            //System.out.println(type + " contains Done");
             if(Greenfoot.mouseClicked(this))done();
         }
-        else if(type.contains("Display") && !done)updatePicture();
+        else if(type.contains("Display") && !done)
+        {
+            //System.out.println(type + " contains Display and not done");
+            updatePicture();
+        }
     }    
 
     public void updatePicture()
@@ -93,7 +99,7 @@ public class Letter extends Actor
         SaveData savedata = new SaveData();
         if(type.startsWith("P") && savedata.Name == "nullERRORplox") 
             savedata.Name = letter + "_________";
-        else if(type.startsWith("R") && savedata.RName != "nullERROXplox")
+        else if(type.startsWith("R") && savedata.RName == "nullERRORplox")
             savedata.RName = letter + "_________";
         else
         {
@@ -118,7 +124,7 @@ public class Letter extends Actor
                 charToWrite++;
             }
         }
-        //System.out.println(savedata.Name); //For debugging
+        System.out.println(savedata.RName); //For debugging
     }
 
     public void delChar()
@@ -181,7 +187,14 @@ public class Letter extends Actor
     {
         SaveData savedata = new SaveData();
         if(pre == "P")
-        savedata.Name = savedata.Name.substring(0,charToWrite);
-        else savedata.RName = savedata.RName.substring(0,charToWrite);
+        {
+            savedata.Name = savedata.Name + "__________";
+            if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
+        }
+        else
+        {
+            savedata.RName = savedata.RName + "__________";
+            if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);
+        }
     }
 }

@@ -53,8 +53,8 @@ public class Textbox extends Actor
     {
         if(!once)
         {
-           once = true;
-           confirmation();
+            once = true;
+            confirmation();
         }
         if(Greenfoot.mouseClicked(this) && next)
         {
@@ -86,7 +86,7 @@ public class Textbox extends Actor
         if(line2 != null) Background.drawString(line2,10,75);
         return Background;
     }
-    
+
     public void confirmation()
     {
         ObjectStorage objectstorage = new ObjectStorage();
@@ -106,19 +106,17 @@ public class Textbox extends Actor
     {
         if(action.equals("gender"))
         {
-           ObjectStorage objectstorage = new ObjectStorage();
-           objectstorage.theGame.addKeyboard("P");
+            ObjectStorage objectstorage = new ObjectStorage();
+            objectstorage.theGame.addKeyboard("P");
         }
         else if(action.equals("name"))
         {
-           ObjectStorage objectstorage = new ObjectStorage();
-           objectstorage.done.cutName("P");
-           objectstorage.theGame.addKeyboard("R");
+            ObjectStorage objectstorage = new ObjectStorage();
+            objectstorage.theGame.addKeyboard("R");
         }
         else if(action == "rname")
         {
             ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.done.cutName("R");
             getWorld().setBackground("space1.jpg");
             getWorld().removeObjects(getWorld().getObjects(null));
         }
@@ -126,8 +124,20 @@ public class Textbox extends Actor
 
     public void no(String action)
     {
-            getWorld().removeObject(bYes);
-            getWorld().removeObject(bNo);
-            getWorld().removeObject(this);
+        if(action.equals("name"))
+        {
+            ObjectStorage objectstorage = new ObjectStorage();
+            objectstorage.done.uncutName("P");
+            objectstorage.done.done = false;
+        }
+        else if(action.equals("rname"))
+        {
+            ObjectStorage objectstorage = new ObjectStorage();
+            objectstorage.done.uncutName("R");
+            objectstorage.done.done = false;
+        }
+        getWorld().removeObject(bYes);
+        getWorld().removeObject(bNo);
+        getWorld().removeObject(this);
     }
 }

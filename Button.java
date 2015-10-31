@@ -130,7 +130,7 @@ public class Button extends Actor
         objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else
-        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }
