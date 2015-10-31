@@ -55,12 +55,12 @@ public class Save
     {
         SaveData savedata = new SaveData(false);
         toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
-        String.valueOf(savedata.SecretID) + " " + String.valueOf(savedata.Money) + " " + 
-        savedata.Gender + " " +String.valueOf(savedata.Boulder) + " \n" + 
-        String.valueOf(savedata.Cascade) + " " + String.valueOf(savedata.Thunder) + " " + 
-        String.valueOf(savedata.Rainbow) + " " + String.valueOf(savedata.Soul) + " " + 
-        String.valueOf(savedata.Marsh) + " " + String.valueOf(savedata.Volcano) + " \n" +
-        String.valueOf(savedata.Earth) + " ";
+        savedata.RName + " " + String.valueOf(savedata.SecretID) + " " + 
+        String.valueOf(savedata.Money) + " " + savedata.Gender + " \n" + 
+        String.valueOf(savedata.Boulder) + " " + String.valueOf(savedata.Cascade) + " " + 
+        String.valueOf(savedata.Thunder) + " " + String.valueOf(savedata.Rainbow) + " " + 
+        String.valueOf(savedata.Soul) + " " + String.valueOf(savedata.Marsh) + " \n" + 
+        String.valueOf(savedata.Volcano) + " " + String.valueOf(savedata.Earth) + " ";
         try
         {
             File save = new File(path);

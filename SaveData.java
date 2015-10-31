@@ -10,6 +10,7 @@ public class SaveData
     static Letter[] Letters = new Letter[40];
     static String Name;
     static int TrainerID;
+    static String RName;
     static int SecretID;
     static int Money;
     static String Gender;
@@ -31,6 +32,7 @@ public class SaveData
         {
             Name = "nullERRORplox";
             TrainerID = Greenfoot.getRandomNumber(65536);
+            RName = "nullERRORplox";
             SecretID = Greenfoot.getRandomNumber(65536);
             Money = 0;
             Gender = "boy";

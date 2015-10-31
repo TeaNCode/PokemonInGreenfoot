@@ -108,7 +108,6 @@ public class Textbox extends Actor
         {
            ObjectStorage objectstorage = new ObjectStorage();
            objectstorage.theGame.pickName();
-           getWorld().removeObject(this);
         }
         else if(acion.equals("name"))
         {
@@ -119,7 +118,17 @@ public class Textbox extends Actor
 
     public void no(String acion)
     {
-        if(acion.equals("gender")) getWorld().removeObject(this);
-        else if(acion.equals("name")) getWorld().removeObject(this);
+        if(acion.equals("gender"))
+        {
+            getWorld().removeObject(bYes);
+            getWorld().removeObject(bNo);
+            getWorld().removeObject(this);
+        }
+        else if(acion.equals("name"))
+        {
+            getWorld().removeObject(bYes);
+            getWorld().removeObject(bNo);
+            getWorld().removeObject(this);
+        }
     }
 }

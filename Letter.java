@@ -12,6 +12,7 @@ public class Letter extends Actor
     private String type;
     private int index;
     static int charToWrite;
+    static boolean done;
     /**
      * This constructor is primarily used when making a key of a keyboard, or when displaying the
      * values of what you're typing. For other Letter uses please refer to the other constructor.
@@ -22,10 +23,10 @@ public class Letter extends Actor
         letter = lttr;
         type = typ;
         charToWrite = 1;
-        if(type == "PName") setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
-        else setImage(new GreenfootImage("_",70,Color.BLACK,new Color(0,0,0,0)));
+        setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
+        if(type. setImage(new GreenfootImage("_",70,Color.BLACK,new Color(0,0,0,0)));
         SaveData savedata = new SaveData();
-        if(type == "PName") savedata.Letters[index] = this;
+        if(type == "PName" || type == "RName") savedata.Letters[index] = this;
     }
     /**
      * This constructor is used for objects that aren't part of the keyboard or displaying what it is
@@ -34,6 +35,7 @@ public class Letter extends Actor
     public Letter(String typ)
     {
         type = typ;
+        done = false;
         if(type == "PDel") setImage(new GreenfootImage("Backspace",45,Color.BLACK,
                     new Color(0,0,0,0)));
         else if(type == "PDone") setImage(new GreenfootImage("Done",50,Color.BLACK,
@@ -59,7 +61,7 @@ public class Letter extends Actor
         {
             if(Greenfoot.mouseClicked(this))done();
         }
-        else if(savedata.Name != "nullERRORplox")updatePicture();
+        else if(savedata.Name != "nullERRORplox" && !done)updatePicture();
     }    
 
     public void updatePicture()
@@ -107,6 +109,7 @@ public class Letter extends Actor
     
     public void done()
     {
+        done = true;
         SaveData savedata = new SaveData();
         if(savedata.Name != "nullERRORplox")
         {
