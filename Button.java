@@ -93,7 +93,7 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "items": setImage(new GreenfootImage("Items",40,Color.YELLOW,
                     new Color(0,0,0,0))); break;
-            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLACK,
+            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLUE,
                     new Color(0,0,0,0))); break;
             case "save": setImage(new GreenfootImage("Save",40,Color.GREEN,
                     new Color(0,0,0,0))); break;
