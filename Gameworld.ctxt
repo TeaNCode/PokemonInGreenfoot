@@ -12,4 +12,6 @@ comment4.params=
 comment4.target=void\ pickGender()
 comment5.params=pre
 comment5.target=void\ addKeyboard(java.lang.String)
-numComments=6
+comment6.params=
+comment6.target=void\ menu()
+numComments=7

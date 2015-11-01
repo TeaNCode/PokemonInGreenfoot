@@ -89,6 +89,16 @@ public class Button extends Actor
             break;
             case "tno": setImage(new GreenfootImage(display,25,Color.BLACK,new Color(0,0,0,0)));
             break;
+            case "options": setImage(new GreenfootImage("Options",40,Color.GRAY,
+                    new Color(0,0,0,0))); break;
+            case "items": setImage(new GreenfootImage("Items",40,Color.YELLOW,
+                    new Color(0,0,0,0))); break;
+            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLACK,
+                    new Color(0,0,0,0))); break;
+            case "save": setImage(new GreenfootImage("Save",40,Color.GREEN,
+                    new Color(0,0,0,0))); break;
+            case "exit": setImage(new GreenfootImage("Exit",40,Color.RED,
+                    new Color(0,0,0,0))); break;
         }
     }
 
@@ -127,10 +137,10 @@ public class Button extends Actor
         ObjectStorage objectstorage = new ObjectStorage();
         SaveData savedata = new SaveData();
         if(savedata.Male)
-        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a boy?\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else
-        objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a girl?\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }

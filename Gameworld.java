@@ -31,6 +31,10 @@ public class Gameworld extends World
     {
         //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
         //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
+         if(Greenfoot.isKeyDown("/"))
+        {
+            menu();
+        }
     }
 
     public void Save()
@@ -68,5 +72,14 @@ public class Gameworld extends World
         addObject(new Letter(pre + "Name","0",39),390,250);
         addObject(new Button("lowercase"),150,300);
         addObject(new Letter(pre + "Del"),500,250);
+    }
+    
+    public void menu()
+    {
+        addObject(new Button("options"), 100, 50);
+        addObject(new Button("items"), 100, 75);
+        addObject(new Button("pokemon"), 100, 100);
+        addObject(new Button("save"), 100, 125);
+        addObject(new Button("exit"), 100, 150);
     }
 }
