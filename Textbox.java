@@ -22,8 +22,33 @@ public class Textbox extends Actor
     private Button bYes;
     private Button bNo;
     private boolean confirmation;
+    private String action;
     public Textbox(String txt)
     {
+        text = txt;
+        once = true;
+        confirmation = false;
+        line1 = null;
+        line2 = null;
+        scanner = new Scanner(text);
+        line1 = scanner.nextLine();
+        if(scanner.hasNext()) line2 = scanner.nextLine();
+        if(line2.equals("BUTTON.CONFIRMATION"))
+        {
+            once = false;
+            line2 = null;
+        }
+        else
+        {
+            setImage(updateImg(""));
+            if(scanner.hasNext()) next = true;
+        }
+        count = 0;
+    }
+    
+    public Textbox(String txt,String acion)
+    {
+        action = acion;
         text = txt;
         once = true;
         confirmation = false;
@@ -67,7 +92,15 @@ public class Textbox extends Actor
             else next = false;
             count = 0;
         }
-        else if(Greenfoot.mouseClicked(this) && !confirmation) getWorld().removeObject(this);
+        else if(Greenfoot.mouseClicked(this) && !confirmation) 
+        {
+            if(action != null)
+            {
+                ObjectStorage objectStorage = new ObjectStorage();
+                if(action == "intro") objectStorage.theGame.introStage++;
+            }
+            getWorld().removeObject(this);
+        }
         if(next)
         {
             count++;

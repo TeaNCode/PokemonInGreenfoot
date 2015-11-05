@@ -59,8 +59,8 @@ public class Button extends Actor
                 confirmGender(); break;
                 case "tyes": textbox.yes(action); break;
                 case "tno": textbox.no(action); break;
-                case "exit": getWorld().removeObject(this); break;
-                
+                case "exit": objectStorage.StartMenu.delete(); 
+                objectStorage.theGame.startMenu = false; break;
             }
         }
         if(delete) getWorld().removeObject(this);
@@ -101,9 +101,8 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "exit": setImage(new GreenfootImage("Exit",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "backg": setImage("backg.jpg"); break;
-            case "me": setImage(new GreenfootImage("Me",40,Color.BLACK,
-                    new Color(0,0,0,0))); break;
+            case "me": SaveData savedata = new SaveData();
+            setImage(new GreenfootImage(savedata.Name,40,Color.BLACK,new Color(0,0,0,0))); break;
         }
     }
 
