@@ -59,6 +59,8 @@ public class Button extends Actor
                 confirmGender(); break;
                 case "tyes": textbox.yes(action); break;
                 case "tno": textbox.no(action); break;
+                case "exit": getWorld().removeObject(this); break;
+                
             }
         }
         if(delete) getWorld().removeObject(this);
@@ -98,6 +100,9 @@ public class Button extends Actor
             case "save": setImage(new GreenfootImage("Save",40,Color.GREEN,
                     new Color(0,0,0,0))); break;
             case "exit": setImage(new GreenfootImage("Exit",40,Color.RED,
+                    new Color(0,0,0,0))); break;
+            case "backg": setImage("backg.jpg"); break;
+            case "me": setImage(new GreenfootImage("Me",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
         }
     }

@@ -76,10 +76,12 @@ public class Gameworld extends World
     
     public void menu()
     {
-        addObject(new Button("options"), 100, 50);
-        addObject(new Button("items"), 100, 75);
-        addObject(new Button("pokemon"), 100, 100);
-        addObject(new Button("save"), 100, 125);
-        addObject(new Button("exit"), 100, 150);
-    }
+        addObject(new Button("backg"), 500, 110);
+        addObject(new Button("options"), 500, 50);
+        addObject(new Button("me"), 500, 80);
+        addObject(new Button("items"), 500, 110);
+        addObject(new Button("pokemon"), 500, 140);
+        addObject(new Button("save"), 500, 170);
+        addObject(new Button("exit"), 500, 200);
+}
 }
