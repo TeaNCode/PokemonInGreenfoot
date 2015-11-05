@@ -124,7 +124,6 @@ public class Letter extends Actor
                 charToWrite++;
             }
         }
-        System.out.println(savedata.RName); //For debugging
     }
 
     public void delChar()
@@ -177,21 +176,21 @@ public class Letter extends Actor
         SaveData savedata = new SaveData();
         if(savedata.Male)
         objectstorage.theGame.addObject(new Textbox("So her name is " + savedata.RName + ".\n"
-                + "BUTTON.CONFIRMATION" + "\nname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
+                + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else 
         objectstorage.theGame.addObject(new Textbox("So his name is " + savedata.RName + ".\n"
-                + "BUTTON.CONFIRMATION" + "\nname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
+                + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
     
     public void uncutName(String pre)
     {
         SaveData savedata = new SaveData();
-        if(pre == "P")
+        if(pre.equals("P"))
         {
             savedata.Name = savedata.Name + "__________";
             if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
         }
-        else
+        else if(pre.equals("R"))
         {
             savedata.RName = savedata.RName + "__________";
             if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);

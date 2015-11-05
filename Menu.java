@@ -17,7 +17,7 @@ public class Menu extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        addObject(new Button("newgame"),120,80);
-        addObject(new Button("continuegame"),153,120);
+        addObject(new Button("newgame"),120,120);
+        addObject(new Button("continuegame"),153,80);
     }
 }
