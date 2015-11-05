@@ -91,15 +91,15 @@ public class Button extends Actor
             break;
             case "tno": setImage(new GreenfootImage(display,25,Color.BLACK,new Color(0,0,0,0)));
             break;
-            case "options": setImage(new GreenfootImage("Options",40,Color.GRAY,
+            case "options": setImage(new GreenfootImage("Options",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "items": setImage(new GreenfootImage("Items",40,Color.YELLOW,
+            case "items": setImage(new GreenfootImage("Items",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLUE,
+            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "save": setImage(new GreenfootImage("Save",40,Color.GREEN,
+            case "save": setImage(new GreenfootImage("Save",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "exit": setImage(new GreenfootImage("Exit",40,Color.RED,
+            case "exit": setImage(new GreenfootImage("Exit",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "backg": setImage("backg.jpg"); break;
             case "me": setImage(new GreenfootImage("Me",40,Color.BLACK,
