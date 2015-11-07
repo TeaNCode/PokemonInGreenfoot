@@ -133,6 +133,9 @@ public class Textbox extends Actor
     public GreenfootImage updateImg(String end)
     {
         GreenfootImage Background = new GreenfootImage("White600x100" + end + ".png"); 
+        SaveData savedata = new SaveData();
+        Background.setColor(savedata.Color);
+        Background.drawRect(0,0,599,99);
         Background.setColor(Color.BLACK);
         Background.setFont(new Font("Serif",Font.PLAIN,20));
         Background.drawString(line1,10,25);
@@ -170,13 +173,26 @@ public class Textbox extends Actor
         else if(action.equals("name"))
         {
             ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.theGame.addKeyboard("R");
+            SaveData savedata = new SaveData();
+            if(savedata.Male)
+            objectstorage.theGame.addObject(new Textbox("Here comes your rival, " +
+            "my grandaughter.\nYou two have always been fighting.\nWhat was her name?"
+            + "\nTEXTBOX.DNEXT","003intro"),300,350);
+            else
+            objectstorage.theGame.addObject(new Textbox("Here comes your rival, " +
+            "my grandson.\nYou two have always been fighting.\nWhat was his name?"
+            + "\nTEXTBOX.DNEXT","003intro"),300,350);
+            getWorld().removeObject(bYes);
+            getWorld().removeObject(bNo);
+            getWorld().removeObject(this);
         }
-        else if(action == "rname")
+        else if(action.equals("rname"))
         {
-            ObjectStorage objectstorage = new ObjectStorage();
-            getWorld().setBackground("space1.jpg");
-            getWorld().removeObjects(getWorld().getObjects(null));
+            ObjectStorage storage = new ObjectStorage();
+            storage.theGame.setBackground("space1.jpg");
+            storage.theGame.removeObjects(storage.theGame.getObjects(null));
+            //getWorld().setBackground("space1.jpg");
+            //getWorld().removeObjects(getWorld().getObjects(null));
         }
     }
 

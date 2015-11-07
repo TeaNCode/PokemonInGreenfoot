@@ -18,13 +18,13 @@ public class Gameworld extends World
         super(600, 400, 1,false); 
         startMenu = false;
         delay = 0;
-        if(typ == "newgame")
+        if(typ.equals("newgame"))
         {
             setBackground("White.png");
             SaveData savedata = new SaveData(true);
             addObject(new Textbox("Welcome to the world of Pokémon!\nPlease tell me a bit about yourself.\nAre you a boy or a girl?\nTEXTBOX.DNEXT","001intro"),300,350);
         }
-        else if(typ == "continuegame")
+        else if(typ.equals("continuegame"))
         {
             
         }
@@ -96,7 +96,6 @@ public class Gameworld extends World
     
     public void intro(int stage)
     {
-        System.out.print("Running intro stage: " + stage);
         if(stage == 1) pickGender();
         else if(stage == 2) addKeyboard("P");
         else if(stage == 3) addKeyboard("R");
