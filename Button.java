@@ -61,6 +61,7 @@ public class Button extends Actor
                 case "tno": textbox.no(action); break;
                 case "exit": objectStorage.StartMenu.delete(); 
                 objectStorage.theGame.startMenu = false; break;
+                case "options": Greenfoot.setWorld(new Options()); break;
             }
         }
         if(delete) getWorld().removeObject(this);

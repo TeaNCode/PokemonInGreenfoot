@@ -43,7 +43,7 @@ public class OButton extends Actor
             {
                 switch(type)
                 {
-
+                    case "back": Greenfoot.setWorld(objectStorage.theGame);
                 }
             }
         }
@@ -64,7 +64,7 @@ public class OButton extends Actor
             {
                 switch(type)
                 {
-
+                    case "back": setImage(new GreenfootImage("Back",50,Color.BLACK,new Color(0,0,0,0)));
                 }
             }
     }
