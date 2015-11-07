@@ -9,8 +9,6 @@ public class Gameworld extends World
 {
     public boolean startMenu;
     public int delay;
-    public int introStage;
-    public String action;
     /**
      * Constructor for objects of class Gameworld.
      * 
@@ -20,15 +18,11 @@ public class Gameworld extends World
         super(600, 400, 1,false); 
         startMenu = false;
         delay = 0;
-        introStage = 0;
         if(typ == "newgame")
         {
             setBackground("White.png");
             SaveData savedata = new SaveData(true);
-            intro();
-            introStage = 0;
-            action = "intro";
-            addObject(new Textbox("Welcome to the world of Pokémon!\nPlease tell me a bit about yourself.\nAre you a boy or a girl?","action"),300,500);
+            addObject(new Textbox("Welcome to the world of Pokémon!\nPlease tell me a bit about yourself.\nAre you a boy or a girl?\nTEXTBOX.DNEXT","001intro"),300,350);
         }
         else if(typ == "continuegame")
         {
@@ -46,7 +40,6 @@ public class Gameworld extends World
         {
             menu();
         }
-        if(action == "intro") intro();
     }
 
     public void Save()
@@ -101,8 +94,11 @@ public class Gameworld extends World
         }
     }
     
-    public void intro()
+    public void intro(int stage)
     {
-        if(introStage == 1) pickGender();
+        System.out.print("Running intro stage: " + stage);
+        if(stage == 1) pickGender();
+        else if(stage == 2) addKeyboard("P");
+        else if(stage == 3) addKeyboard("R");
     }
 }

@@ -16,6 +16,7 @@ public class Textbox extends Actor
     private String yes;
     private String no;
     private boolean next;
+    private boolean dNext;
     private Scanner scanner;
     private int count;
     private boolean once;
@@ -23,6 +24,7 @@ public class Textbox extends Actor
     private Button bNo;
     private boolean confirmation;
     private String action;
+    private int actionNum;
     public Textbox(String txt)
     {
         text = txt;
@@ -45,10 +47,11 @@ public class Textbox extends Actor
         }
         count = 0;
     }
-    
+
     public Textbox(String txt,String acion)
     {
-        action = acion;
+        action = acion.substring(3,acion.length());
+        actionNum = Integer.valueOf(acion.substring(0,3));
         text = txt;
         once = true;
         confirmation = false;
@@ -56,17 +59,22 @@ public class Textbox extends Actor
         line2 = null;
         scanner = new Scanner(text);
         line1 = scanner.nextLine();
-        if(scanner.hasNext()) line2 = scanner.nextLine();
-        if(line2.equals("BUTTON.CONFIRMATION"))
+        if(scanner.hasNext())
         {
-            once = false;
-            line2 = null;
+            line2 = scanner.nextLine();
+            if(line2.equals("BUTTON.CONFIRMATION"))
+            {
+                once = false;
+                line2 = null;
+            }
+            else if(line2.equals("TEXTBOX.DNEXT"))
+            {
+                dNext = true;
+                line2 = null;
+            }
         }
-        else
-        {
-            setImage(updateImg(""));
-            if(scanner.hasNext()) next = true;
-        }
+        setImage(updateImg(""));
+        if(scanner.hasNext()) next = true;
         count = 0;
     }
 
@@ -83,25 +91,37 @@ public class Textbox extends Actor
         }
         if(Greenfoot.mouseClicked(this) && next)
         {
+            next = false;
+            dNext = false;
             line1 = null;
             line2 = null;
             line1 = scanner.nextLine();
             if(scanner.hasNext()) line2 = scanner.nextLine();
-            setImage(updateImg(""));
-            if(scanner.hasNext()) next = true;
-            else next = false;
+            if(line2.equals("BUTTON.CONFIRMATION"))
+            {
+                once = false;
+                line2 = null;
+            }
+            else if(line2.equals("TEXTBOX.DNEXT"))
+            {
+                dNext = true;
+                line2 = null;
+            }
+            else
+            {
+                setImage(updateImg(""));
+                if(scanner.hasNext()) next = true;
+            }
             count = 0;
         }
         else if(Greenfoot.mouseClicked(this) && !confirmation) 
         {
-            if(action != null)
-            {
-                ObjectStorage objectStorage = new ObjectStorage();
-                if(action == "intro") objectStorage.theGame.introStage++;
-            }
-            getWorld().removeObject(this);
+            ObjectStorage objectStorage = new ObjectStorage();
+            if(action.equals("intro"))
+                objectStorage.theGame.intro(actionNum);
+            else getWorld().removeObject(this);
         }
-        if(next)
+        if(next || dNext)
         {
             count++;
             if(count < 31) setImage(updateImg("T"));
@@ -140,7 +160,12 @@ public class Textbox extends Actor
         if(action.equals("gender"))
         {
             ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.theGame.addKeyboard("P");
+            //objectstorage.theGame.addKeyboard("P");
+            objectstorage.theGame.addObject(new Textbox("Alright so what is your " + 
+                    "name?\nTEXTBOX.DNEXT","002intro"),300,350);
+            getWorld().removeObject(bYes);
+            getWorld().removeObject(bNo);
+            getWorld().removeObject(this);
         }
         else if(action.equals("name"))
         {

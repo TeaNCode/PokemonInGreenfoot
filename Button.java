@@ -141,10 +141,10 @@ public class Button extends Actor
         ObjectStorage objectstorage = new ObjectStorage();
         SaveData savedata = new SaveData();
         if(savedata.Male)
-        objectstorage.theGame.addObject(new Textbox("So you are a boy?\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else
-        objectstorage.theGame.addObject(new Textbox("So you are a girl?\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }
