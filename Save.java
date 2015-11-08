@@ -58,6 +58,7 @@ public class Save
     public void assembleSave()
     {
         SaveData savedata = new SaveData();
+        getColorString();
         toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
         savedata.RName + " " + String.valueOf(savedata.SecretID) + " " + 
         String.valueOf(savedata.Money) + " " + String.valueOf(savedata.Male) + " \n" + 

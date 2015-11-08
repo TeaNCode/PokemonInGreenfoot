@@ -19,5 +19,6 @@ public class Menu extends World
         super(600, 400, 1); 
         addObject(new Button("newgame"),120,120);
         addObject(new Button("continuegame"),153,80);
+        addObject(new Button("gOptions"),98,160);
     }
 }

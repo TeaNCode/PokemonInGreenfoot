@@ -13,6 +13,7 @@ public class OButton extends Actor
     private String type;
     private boolean delete;
     private Map<String, Color> colorStringMap = new HashMap<String, Color>();
+    static boolean update;
     /**
      * Executed when Button added to world.
      * Button type needs to be specified
@@ -22,6 +23,7 @@ public class OButton extends Actor
         type = typ; //Store type for later use
         setPicture();
         delete = false;
+        update = false;
     }
 
     /**
@@ -30,6 +32,7 @@ public class OButton extends Actor
      */
     public void act() 
     {
+        if(!update) setPicture();
         if(Greenfoot.mouseClicked(this))
         {
             SaveData savedata = new SaveData();
@@ -38,6 +41,7 @@ public class OButton extends Actor
             {
                 colorStringMapping();
                 savedata.Color = colorStringMap.get(type.substring(2,type.length()));
+                update = false;
             }
             else
             {
@@ -55,20 +59,35 @@ public class OButton extends Actor
     public void setPicture()
     {
         if(type.startsWith("OC"))
+        {
+            colorStringMapping();
+            SaveData savedata = new SaveData();
+            if(savedata.Color == colorStringMap.get(type.substring(2,type.length())) &&
+            savedata.Color == Color.YELLOW)
             {
-                colorStringMapping();
                 setImage(new GreenfootImage(type.substring(2,type.length()),
-                40,colorStringMap.get(type.substring(2,type.length())),new Color(0,0,0,0)));
+                        40,colorStringMap.get(type.substring(2,type.length())),Color.ORANGE));
+                        update = true;
+            }
+            else if(savedata.Color == colorStringMap.get(type.substring(2,type.length())))
+            {
+                setImage(new GreenfootImage(type.substring(2,type.length()),
+                        40,colorStringMap.get(type.substring(2,type.length())),Color.YELLOW));
+                        update = true;
             }
             else
+                setImage(new GreenfootImage(type.substring(2,type.length()),
+                        40,colorStringMap.get(type.substring(2,type.length())),new Color(0,0,0,0)));
+        }
+        else
+        {
+            switch(type)
             {
-                switch(type)
-                {
-                    case "back": setImage(new GreenfootImage("Back",50,Color.BLACK,new Color(0,0,0,0)));
-                }
+                case "back": setImage(new GreenfootImage("Back",50,Color.BLACK,new Color(0,0,0,0)));
             }
+        }
     }
-    
+
     public void colorStringMapping()
     {
         colorStringMap.put("Black",Color.BLACK);

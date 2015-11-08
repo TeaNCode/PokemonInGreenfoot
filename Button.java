@@ -41,6 +41,8 @@ public class Button extends Actor
      */
     public void act() 
     {
+        if(Greenfoot.isKeyDown("enter") && type.equals("start"))
+        Greenfoot.setWorld(new Menu());
         if(Greenfoot.mouseClicked(this))
         {
             SaveData savedata = new SaveData();
@@ -62,6 +64,8 @@ public class Button extends Actor
                 case "exit": objectStorage.StartMenu.delete(); 
                 objectStorage.theGame.startMenu = false; break;
                 case "options": Greenfoot.setWorld(new Options()); break;
+                case "gOptions": Greenfoot.setWorld(new Options()); break;
+                case "start": Greenfoot.setWorld(new Menu()); break;
             }
         }
         if(delete) getWorld().removeObject(this);
@@ -104,6 +108,10 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "me": SaveData savedata = new SaveData();
             setImage(new GreenfootImage(savedata.Name,40,Color.BLACK,new Color(0,0,0,0))); break;
+            case "gOptions": setImage(new GreenfootImage("Options",40,Color.LIGHT_GRAY,
+                    new Color(0,0,0,0))); break;
+            case "start": setImage(new GreenfootImage("Press Enter to start",40,Color.LIGHT_GRAY,
+            new Color(0,0,0,0))); break;
         }
     }
 
