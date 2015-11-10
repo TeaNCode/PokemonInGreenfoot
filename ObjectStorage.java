@@ -9,6 +9,7 @@ public class ObjectStorage
     static Gameworld theGame;
     static Letter done;
     static startMenu StartMenu;
+    static Player player;
     /**
      * Use this constructor for accessing objects of the world remotely
      */
