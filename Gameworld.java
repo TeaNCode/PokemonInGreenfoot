@@ -8,6 +8,8 @@ import greenfoot.*;
  */
 public class Gameworld extends World
 {
+    public boolean startMenu;
+    public int delay;
     /**
      * Constructor for objects of class Gameworld.
      * 
@@ -15,14 +17,17 @@ public class Gameworld extends World
     public Gameworld(String typ)
     {    
         super(600, 400, 1,false); 
-        if(typ == "newgame")
+        startMenu = false;
+        delay = 0;
+        if(typ.equals("newgame"))
         {
+            setBackground("White.png");
             SaveData savedata = new SaveData(true);
-            pickGender();
+            addObject(new Textbox("Welcome to the world of Pokémon!\nPlease tell me a bit about yourself.\nAre you a boy or a girl?\nTEXTBOX.DNEXT","001intro"),300,350);
         }
-        else if(typ == "continuegame")
+        else if(typ.equals("continuegame"))
         {
-
+            
         }
         else System.out.println("Fatal Error: invalid save-handling type");
     }
@@ -31,7 +36,8 @@ public class Gameworld extends World
     {
         //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
         //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
-         if(Greenfoot.isKeyDown("/"))
+        if(delay != 0) delay--;
+         if(Greenfoot.isKeyDown("/") && delay == 0)
         {
             menu();
         }
@@ -39,14 +45,13 @@ public class Gameworld extends World
 
     public void Save()
     {
-        Save save = new Save("Save.txt");
+        Save save = new Save("Save.a");
         save.assembleSave();
     }
 
     public void pickGender()
     {
         removeObjects(getObjects(null));
-        setBackground("White.png");
         addObject(new Button("male"),100,200);
         addObject(new Button("female"),500,200);
     }
@@ -76,12 +81,24 @@ public class Gameworld extends World
     
     public void menu()
     {
-        addObject(new Button("backg"), 500, 110);
-        addObject(new Button("options"), 500, 50);
-        addObject(new Button("me"), 500, 80);
-        addObject(new Button("items"), 500, 110);
-        addObject(new Button("pokemon"), 500, 140);
-        addObject(new Button("save"), 500, 170);
-        addObject(new Button("exit"), 500, 200);
-}
+        if(!startMenu)
+        {
+            delay = 20;
+            startMenu = true;
+            addObject(new startMenu(), 508, 148);
+        }
+        else 
+        {
+            startMenu = false;
+            ObjectStorage objectStorage = new ObjectStorage();
+            objectStorage.StartMenu.delete();
+        }
+    }
+    
+    public void intro(int stage)
+    {
+        if(stage == 1) pickGender();
+        else if(stage == 2) addKeyboard("P");
+        else if(stage == 3) addKeyboard("R");
+    }
 }

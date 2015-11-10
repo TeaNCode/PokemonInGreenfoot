@@ -1,3 +1,6 @@
+import java.io.File;
+import java.util.Scanner;
+import java.util.NoSuchElementException;
 /**
  * Write a description of class SaveReader here.
  * 
@@ -12,5 +15,11 @@ public class SaveReader
     public SaveReader()
     {
         
+    }
+    
+    static void loadSave()
+    {
+        SaveData savedata = new SaveData();
+        savedata.loaded = true;
     }
 }

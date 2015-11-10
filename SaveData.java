@@ -7,6 +7,7 @@ import greenfoot.Greenfoot;
  */
 public class SaveData  
 {
+    static boolean loaded;
     static Letter[] Letters = new Letter[40];
     static String Name;
     static int TrainerID;
@@ -22,14 +23,19 @@ public class SaveData
     static boolean Marsh;
     static boolean Volcano;
     static boolean Earth;
+    static java.awt.Color Color;
+    static String ColorString;
     static int[][] Party = new int[5][];
     /**
      * Constructor for objects of class SaveData
+     * WARNING: THIS CONSTRUCTOR SHOULD NOT BE USED EXCEPT FOR INITIALIZING A NEW GAME
+     * IT WILL OVERWRITE EVERYTHING IN SAVEDATA
      */
     public SaveData(boolean New)
     {
         if(New)
         {
+            loaded = true;
             Name = "nullERRORplox";
             TrainerID = Greenfoot.getRandomNumber(65536);
             RName = "nullERRORplox";
@@ -44,8 +50,12 @@ public class SaveData
             Marsh = false;
             Volcano = false;
             Earth = false;
+            Color = java.awt.Color.BLACK;
         }
     }
+    /**
+     * This constructor is used when accessing variables from SaveData
+     */
     public SaveData()
     {
         

@@ -16,12 +16,15 @@ public class Textbox extends Actor
     private String yes;
     private String no;
     private boolean next;
+    private boolean dNext;
     private Scanner scanner;
     private int count;
     private boolean once;
     private Button bYes;
     private Button bNo;
     private boolean confirmation;
+    private String action;
+    private int actionNum;
     public Textbox(String txt)
     {
         text = txt;
@@ -45,6 +48,36 @@ public class Textbox extends Actor
         count = 0;
     }
 
+    public Textbox(String txt,String acion)
+    {
+        action = acion.substring(3,acion.length());
+        actionNum = Integer.valueOf(acion.substring(0,3));
+        text = txt;
+        once = true;
+        confirmation = false;
+        line1 = null;
+        line2 = null;
+        scanner = new Scanner(text);
+        line1 = scanner.nextLine();
+        if(scanner.hasNext())
+        {
+            line2 = scanner.nextLine();
+            if(line2.equals("BUTTON.CONFIRMATION"))
+            {
+                once = false;
+                line2 = null;
+            }
+            else if(line2.equals("TEXTBOX.DNEXT"))
+            {
+                dNext = true;
+                line2 = null;
+            }
+        }
+        setImage(updateImg(""));
+        if(scanner.hasNext()) next = true;
+        count = 0;
+    }
+
     /**
      * Act - do whatever the Textbox wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -58,17 +91,37 @@ public class Textbox extends Actor
         }
         if(Greenfoot.mouseClicked(this) && next)
         {
+            next = false;
+            dNext = false;
             line1 = null;
             line2 = null;
             line1 = scanner.nextLine();
             if(scanner.hasNext()) line2 = scanner.nextLine();
-            setImage(updateImg(""));
-            if(scanner.hasNext()) next = true;
-            else next = false;
+            if(line2.equals("BUTTON.CONFIRMATION"))
+            {
+                once = false;
+                line2 = null;
+            }
+            else if(line2.equals("TEXTBOX.DNEXT"))
+            {
+                dNext = true;
+                line2 = null;
+            }
+            else
+            {
+                setImage(updateImg(""));
+                if(scanner.hasNext()) next = true;
+            }
             count = 0;
         }
-        else if(Greenfoot.mouseClicked(this) && !confirmation) getWorld().removeObject(this);
-        if(next)
+        else if(Greenfoot.mouseClicked(this) && !confirmation) 
+        {
+            ObjectStorage objectStorage = new ObjectStorage();
+            if(action.equals("intro"))
+                objectStorage.theGame.intro(actionNum);
+            else getWorld().removeObject(this);
+        }
+        if(next || dNext)
         {
             count++;
             if(count < 31) setImage(updateImg("T"));
@@ -80,6 +133,9 @@ public class Textbox extends Actor
     public GreenfootImage updateImg(String end)
     {
         GreenfootImage Background = new GreenfootImage("White600x100" + end + ".png"); 
+        SaveData savedata = new SaveData();
+        Background.setColor(savedata.Color);
+        Background.drawRect(0,0,599,99);
         Background.setColor(Color.BLACK);
         Background.setFont(new Font("Serif",Font.PLAIN,20));
         Background.drawString(line1,10,25);
@@ -107,18 +163,36 @@ public class Textbox extends Actor
         if(action.equals("gender"))
         {
             ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.theGame.addKeyboard("P");
+            //objectstorage.theGame.addKeyboard("P");
+            objectstorage.theGame.addObject(new Textbox("Alright so what is your " + 
+                    "name?\nTEXTBOX.DNEXT","002intro"),300,350);
+            getWorld().removeObject(bYes);
+            getWorld().removeObject(bNo);
+            getWorld().removeObject(this);
         }
         else if(action.equals("name"))
         {
             ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.theGame.addKeyboard("R");
+            SaveData savedata = new SaveData();
+            if(savedata.Male)
+            objectstorage.theGame.addObject(new Textbox("Here comes your rival, " +
+            "my grandaughter.\nYou two have always been fighting.\nWhat was her name?"
+            + "\nTEXTBOX.DNEXT","003intro"),300,350);
+            else
+            objectstorage.theGame.addObject(new Textbox("Here comes your rival, " +
+            "my grandson.\nYou two have always been fighting.\nWhat was his name?"
+            + "\nTEXTBOX.DNEXT","003intro"),300,350);
+            getWorld().removeObject(bYes);
+            getWorld().removeObject(bNo);
+            getWorld().removeObject(this);
         }
-        else if(action == "rname")
+        else if(action.equals("rname"))
         {
-            ObjectStorage objectstorage = new ObjectStorage();
-            getWorld().setBackground("space1.jpg");
-            getWorld().removeObjects(getWorld().getObjects(null));
+            ObjectStorage storage = new ObjectStorage();
+            storage.theGame.setBackground("space1.jpg");
+            storage.theGame.removeObjects(storage.theGame.getObjects(null));
+            //getWorld().setBackground("space1.jpg");
+            //getWorld().removeObjects(getWorld().getObjects(null));
         }
     }
 

@@ -14,4 +14,6 @@ comment5.params=pre
 comment5.target=void\ addKeyboard(java.lang.String)
 comment6.params=
 comment6.target=void\ menu()
-numComments=7
+comment7.params=stage
+comment7.target=void\ intro(int)
+numComments=8

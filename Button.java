@@ -41,6 +41,8 @@ public class Button extends Actor
      */
     public void act() 
     {
+        if(Greenfoot.isKeyDown("enter") && type.equals("start"))
+        Greenfoot.setWorld(new Menu());
         if(Greenfoot.mouseClicked(this))
         {
             SaveData savedata = new SaveData();
@@ -59,8 +61,11 @@ public class Button extends Actor
                 confirmGender(); break;
                 case "tyes": textbox.yes(action); break;
                 case "tno": textbox.no(action); break;
-                case "exit": getWorld().removeObject(this); break;
-                
+                case "exit": objectStorage.StartMenu.delete(); 
+                objectStorage.theGame.startMenu = false; break;
+                case "options": Greenfoot.setWorld(new Options()); break;
+                case "gOptions":SaveReader.loadSave(); Greenfoot.setWorld(new Options()); break;
+                case "start": Greenfoot.setWorld(new Menu()); break;
             }
         }
         if(delete) getWorld().removeObject(this);
@@ -95,15 +100,18 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "items": setImage(new GreenfootImage("Items",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLACK,
+            case "pokemon": setImage(new GreenfootImage("Pokémon",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "save": setImage(new GreenfootImage("Save",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "exit": setImage(new GreenfootImage("Exit",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "backg": setImage("backg.jpg"); break;
-            case "me": setImage(new GreenfootImage("Me",40,Color.BLACK,
+            case "me": SaveData savedata = new SaveData();
+            setImage(new GreenfootImage(savedata.Name,30,Color.BLACK,new Color(0,0,0,0))); break;
+            case "gOptions": setImage(new GreenfootImage("Options",40,Color.LIGHT_GRAY,
                     new Color(0,0,0,0))); break;
+            case "start": setImage(new GreenfootImage("Press Enter to start",40,Color.LIGHT_GRAY,
+            new Color(0,0,0,0))); break;
         }
     }
 
@@ -142,10 +150,10 @@ public class Button extends Actor
         ObjectStorage objectstorage = new ObjectStorage();
         SaveData savedata = new SaveData();
         if(savedata.Male)
-        objectstorage.theGame.addObject(new Textbox("So you are a boy?\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else
-        objectstorage.theGame.addObject(new Textbox("So you are a girl?\n"
+        objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
         + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }

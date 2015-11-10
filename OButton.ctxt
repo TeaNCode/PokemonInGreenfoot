@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=OButton
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ OButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=typ
+comment1.target=OButton(java.lang.String)
+comment1.text=\r\n\ Executed\ when\ Button\ added\ to\ world.\r\n\ Button\ type\ needs\ to\ be\ specified\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ OButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ setPicture()
+comment3.text=\r\n\ Sets\ the\ actor's\ image\ depending\ on\ the\ type\r\n
+comment4.params=
+comment4.target=void\ colorStringMapping()
+numComments=5
