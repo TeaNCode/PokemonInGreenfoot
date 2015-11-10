@@ -16,7 +16,7 @@ public class startMenu extends Actor
         once = false;
         ObjectStorage objectStorage = new ObjectStorage();
         objectStorage.StartMenu = this;
-        String types[] = {"options","me","items","pokemon","save","exit"};
+        String types[] = {"pokemon","items","me","save","options","exit"};
         for(int i = 0; i < 6; i++)
         {
             buttons[i] = new Button(types[i]);

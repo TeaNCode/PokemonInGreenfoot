@@ -7,6 +7,7 @@ import greenfoot.Greenfoot;
  */
 public class SaveData  
 {
+    static boolean loaded;
     static Letter[] Letters = new Letter[40];
     static String Name;
     static int TrainerID;
@@ -34,6 +35,7 @@ public class SaveData
     {
         if(New)
         {
+            loaded = true;
             Name = "nullERRORplox";
             TrainerID = Greenfoot.getRandomNumber(65536);
             RName = "nullERRORplox";

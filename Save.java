@@ -29,7 +29,6 @@ System.out.println(e);
 public class Save
 {
     private String path;
-    private String toSave;
     private Map<Color, String> colorMap = new HashMap<Color, String>();
     /**
      * Save class requires a file path to be passed to it
@@ -37,7 +36,6 @@ public class Save
     public Save(String file_path)
     {
         path = file_path;
-        toSave = null;
     }
 
     /**
@@ -59,7 +57,7 @@ public class Save
     {
         SaveData savedata = new SaveData();
         getColorString();
-        toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
+        String toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
         savedata.RName + " " + String.valueOf(savedata.SecretID) + " " + 
         String.valueOf(savedata.Money) + " " + String.valueOf(savedata.Male) + " \n" + 
         String.valueOf(savedata.Boulder) + " " + String.valueOf(savedata.Cascade) + " " + 
@@ -67,6 +65,11 @@ public class Save
         String.valueOf(savedata.Soul) + " " + String.valueOf(savedata.Marsh) + " \n" + 
         String.valueOf(savedata.Volcano) + " " + String.valueOf(savedata.Earth) + " " +
         savedata.ColorString;
+        writeSave(toSave);
+    }
+    
+    public void writeSave(String toWrite)
+    {
         try
         {
             File save = new File(path);
@@ -77,7 +80,7 @@ public class Save
                 else System.out.println("Fatal error: Save.txt exists but cannot be read/writen."
                 +"\nPlease try running this project at a different file location");
             }
-            writeToFile(toSave);
+            writeToFile(toWrite);
             saveBackup.delete();
         }
         catch (IOException e)

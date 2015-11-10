@@ -4,6 +4,7 @@
 
 # Don't need to distribute save files here
 Save.txt
+Save.a
 greenfoot-debuglog.txt #User debug log, not needed
 
 #################

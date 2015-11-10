@@ -17,8 +17,8 @@ public class Menu extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        File save = new File("Save.txt");
-        if(save.isFile())
+        File save = new File("Save.a");
+        if(save.canRead())
         {
             addObject(new Button("continuegame"),153,80);
             addObject(new Button("gOptions"),98,160);

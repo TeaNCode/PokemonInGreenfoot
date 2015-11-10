@@ -45,7 +45,7 @@ public class Gameworld extends World
 
     public void Save()
     {
-        Save save = new Save("Save.txt");
+        Save save = new Save("Save.a");
         save.assembleSave();
     }
 

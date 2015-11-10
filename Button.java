@@ -64,7 +64,7 @@ public class Button extends Actor
                 case "exit": objectStorage.StartMenu.delete(); 
                 objectStorage.theGame.startMenu = false; break;
                 case "options": Greenfoot.setWorld(new Options()); break;
-                case "gOptions": Greenfoot.setWorld(new Options()); break;
+                case "gOptions":SaveReader.loadSave(); Greenfoot.setWorld(new Options()); break;
                 case "start": Greenfoot.setWorld(new Menu()); break;
             }
         }
@@ -100,14 +100,14 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "items": setImage(new GreenfootImage("Items",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "pokemon": setImage(new GreenfootImage("Pokemon",40,Color.BLACK,
+            case "pokemon": setImage(new GreenfootImage("Pokémon",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "save": setImage(new GreenfootImage("Save",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "exit": setImage(new GreenfootImage("Exit",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
             case "me": SaveData savedata = new SaveData();
-            setImage(new GreenfootImage(savedata.Name,40,Color.BLACK,new Color(0,0,0,0))); break;
+            setImage(new GreenfootImage(savedata.Name,30,Color.BLACK,new Color(0,0,0,0))); break;
             case "gOptions": setImage(new GreenfootImage("Options",40,Color.LIGHT_GRAY,
                     new Color(0,0,0,0))); break;
             case "start": setImage(new GreenfootImage("Press Enter to start",40,Color.LIGHT_GRAY,
