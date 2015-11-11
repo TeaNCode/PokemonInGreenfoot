@@ -8,7 +8,7 @@ public class PokemonData
 {
     // Pokemon Ints format {Base HP,Base Attack, Base Defense, Base Special attack
     //  , Base Special Defense, Base Speed, Type 1, Type 2 (If none type Type 1 again), Catch Rate
-    //  , Base Exp. yield (Gen V+), EV Yield 1(First != 0 left to right), EV Yield 2, Gender value
+    //  , Base Exp. yield (Gen V+), EV Yield 1(First != 0 left to right), EV Yield 2, Gender ratio value
     //  , Lower hatch time value / 255, Base friendship, Level up type, Egg group 1
     //  , Egg group 2};
     // Based on Bulbapedia's 'Pokémon base stats data structure in Generation III'
@@ -27,6 +27,7 @@ public class PokemonData
     String[] charmanderStrings = {"Charmander","Lizard Pokémon","S",null,null,null,"Blaze",null};
     int[] charmeleonInts = {58,64,58,80,65,80,10,10,45,142,1,1,31,21,70,3,1,15};
     String[] charmeleonStrings = {"Charmeleon","Flame Pokémon","SA","S",null,null,"Blaze",null};
+    int[] charizardInts = {78,84,78,109,85,100,10,2,45,240,3,0,31,21,70,3,1,15};
     int[][] dataInts = new int[151][];
     String[][] dataStrings = new String[151][];
     /**
