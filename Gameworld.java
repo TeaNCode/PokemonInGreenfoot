@@ -1,5 +1,6 @@
 import greenfoot.*;
-
+import java.awt.*;
+import java.util.*;
 /**
  * Write a description of class Gameworld here.
  * 
@@ -85,7 +86,17 @@ public class Gameworld extends World
         {
             delay = 20;
             startMenu = true;
+            //   \/ below is the code for calendar which only appears with the menu, to cahnge this copy lines 89-96 \/
+            Calendar test = new GregorianCalendar();
+            int hour = test.get(Calendar.HOUR_OF_DAY);
+            if (test.get(Calendar.HOUR_OF_DAY) > 12){ 
+                hour = hour - 12;
+                
+            }
             addObject(new startMenu(), 508, 148);
+            GreenfootImage bg = getBackground();
+            bg.setColor(Color.GREEN);
+            bg.drawString("Today is "+(new Date()+";"+"\nalso known as "+hour+":"+test.get(Calendar.MINUTE)+"."), 100, 30);
         }
         else 
         {

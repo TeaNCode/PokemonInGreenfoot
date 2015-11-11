@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Nov 09 22:28:14 CST 2015
+#Tue Nov 10 19:46:43 CST 2015
 target16.name=Display
 dependency35.to=Display
 target2.name=Player
@@ -309,7 +309,7 @@ target6.width=80
 readme.width=47
 class.Player.image=Brendan_F.gif
 target6.editor.y=20
-mainWindow.height=1056
+mainWindow.height=744
 target9.naviview.expanded=true
 target6.editor.x=40
 target5.showInterface=false
@@ -374,5 +374,5 @@ class.loader.superclass=greenfoot.Actor
 target18.typeParameters=
 target1.height=50
 target4.typeParameters=
-mainWindow.width=1936
+mainWindow.width=1378
 =\=\=\=\=\=\=
