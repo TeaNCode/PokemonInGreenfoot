@@ -5,7 +5,22 @@
 # Don't need to distribute save files here
 Save.txt
 Save.a
+#Aaron stahp making userhome files
 greenfoot-debuglog.txt #User debug log, not needed
+allclasses-frame.html
+allclasses-noframe.html
+constant-values.html
+Gameworld.html
+index.html
+logfile.txt
+package-frame.html
+package-list
+package-summary.html
+inherit.gif
+stylesheet.css
+editor.keys
+greenfoot-debuglog.txt
+moe.properties
 
 #################
 ## Eclipse
