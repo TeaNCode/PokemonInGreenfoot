@@ -28,6 +28,14 @@ public class PokemonData
     int[] charmeleonInts = {58,64,58,80,65,80,10,10,45,142,1,1,31,21,70,3,1,15};
     String[] charmeleonStrings = {"Charmeleon","Flame Pokémon","SA","S",null,null,"Blaze",null};
     int[] charizardInts = {78,84,78,109,85,100,10,2,45,240,3,0,31,21,70,3,1,15};
+    String[] charizardStrings = {"Charizard","Flame Pokémon","SA",null,null,null,"Blaze",null};
+    int[] squirtleInts = {44,48,65,50,64,43,11,11,45,63,1,0,31,21,70,3,1,2};
+    String[] squirtleStrings = {"Squirtle","Tiny Turtle Pokémon","D",null,null,null,"Torrent",null};
+    int[] wartortleInts = {59,63,80,65,80,58,11,11,45,142,1,1,31,21,70,3,1,2};
+    String[] wartortleStrings = {"Wartortle","Turtle Pokémon","D","SD",null,null,"Torrent",null};
+    int[] blastoiseInts = {79,83,100,85,105,78,11,11,45,239,3,0,31,21,70,3,1,2};
+    String[] blastoiseStrings = {"Blastoise","Shellfish Pokémon","SD",null,null,null,"Torrent",null};
+    int[] caterpieInts = {45,30,35,20,20,45,6,6,255,39};//EXP YIELD
     int[][] dataInts = new int[151][];
     String[][] dataStrings = new String[151][];
     /**
