@@ -112,4 +112,11 @@ public class Gameworld extends World
         else if(stage == 2) addKeyboard("P");
         else if(stage == 3) addKeyboard("R");
     }
+    
+    public void startGame()
+    {
+        setBackground("space1.jpg");
+        removeObjects(getObjects(null));
+        addObject(new Player(300,200,90),300,200);
+    }
 }

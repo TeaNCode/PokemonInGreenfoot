@@ -189,10 +189,7 @@ public class Textbox extends Actor
         else if(action.equals("rname"))
         {
             ObjectStorage storage = new ObjectStorage();
-            storage.theGame.setBackground("space1.jpg");
-            storage.theGame.removeObjects(storage.theGame.getObjects(null));
-            //getWorld().setBackground("space1.jpg");
-            //getWorld().removeObjects(getWorld().getObjects(null));
+            storage.theGame.startGame();
         }
     }
 
