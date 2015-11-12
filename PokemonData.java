@@ -35,7 +35,8 @@ public class PokemonData
     String[] wartortleStrings = {"Wartortle","Turtle Pokémon","D","SD",null,null,"Torrent",null};
     int[] blastoiseInts = {79,83,100,85,105,78,11,11,45,239,3,0,31,21,70,3,1,2};
     String[] blastoiseStrings = {"Blastoise","Shellfish Pokémon","SD",null,null,null,"Torrent",null};
-    int[] caterpieInts = {45,30,35,20,20,45,6,6,255,39};//EXP YIELD
+    int[] caterpieInts = {45,30,35,20,20,45,6,6,255,39,1,0,127,11,70,0,4,0};
+    String[] caterpieStrings = {"Caterpie","Worm Pokémon","HP",null,null,null,"Shield Dust",null};
     int[][] dataInts = new int[151][];
     String[][] dataStrings = new String[151][];
     /**
