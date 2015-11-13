@@ -1,6 +1,8 @@
 import greenfoot.*;
 import java.awt.*;
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
 /**
  * Write a description of class Gameworld here.
  * 
@@ -11,6 +13,7 @@ public class Gameworld extends World
 {
     public boolean startMenu;
     public int delay;
+    static String direction;
     /**
      * Constructor for objects of class Gameworld.
      * 
@@ -28,13 +31,21 @@ public class Gameworld extends World
         }
         else if(typ.equals("continuegame"))
         {
-            
+            SaveData savedata = new SaveData();
+            if(!savedata.loaded)
+            SaveReader.loadSave();
+            startGame();
         }
         else System.out.println("Fatal Error: invalid save-handling type");
     }
 
     public void act()
     {
+        if(Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) direction = "right";
+        else if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))direction = "down";
+        else if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left"))direction = "left";
+        else if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("up")) direction = "up";
+        else direction = "nah";
         //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
         //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
         if(delay != 0) delay--;
@@ -115,8 +126,10 @@ public class Gameworld extends World
     
     public void startGame()
     {
-        setBackground("space1.jpg");
+        setBackground("White.png");
         removeObjects(getObjects(null));
+        addObject(new MovingTiles("Black.gif"),300,200);
         addObject(new Player(300,200,90),300,200);
+        Greenfoot.setSpeed(33);
     }
 }

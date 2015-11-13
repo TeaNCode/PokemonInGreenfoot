@@ -47,7 +47,7 @@ public class OButton extends Actor
             {
                 switch(type)
                 {
-                    case "back": Greenfoot.setWorld(objectStorage.theGame);
+                    case "back": Greenfoot.setWorld(new Menu());
                 }
             }
         }

@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    private ObjectStorage storage = new ObjectStorage();
     private String gender;
     public Player(int x, int y,int rotate)
     {
@@ -17,10 +18,10 @@ public class Player extends Actor
         ObjectStorage storage = new ObjectStorage();
         storage.player = this;
         setLocation(x,y);
-        if(rotate == 0) setImage(new GreenfootImage("Brendan_R.gif"));
-        else if(rotate == 90) setImage(new GreenfootImage("Brendan_F.gif"));
-        else if(rotate == 180) setImage(new GreenfootImage("Brendan_L.gif"));
-        else if(rotate == 270) setImage(new GreenfootImage("Brendan_B.gif"));
+        if(rotate == 0) setImage(new GreenfootImage(gender + "_R.gif"));
+        else if(rotate == 90) setImage(new GreenfootImage(gender + "_F.gif"));
+        else if(rotate == 180) setImage(new GreenfootImage(gender + "_L.gif"));
+        else if(rotate == 270) setImage(new GreenfootImage(gender + "_B.gif"));
     }
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -28,9 +29,9 @@ public class Player extends Actor
      */
     public void act() 
     {
-        if(Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) setImage(new GreenfootImage("Brendan_R.gif"));
-        else if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))setImage(new GreenfootImage("Brendan_F.gif"));
-        else if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left"))setImage(new GreenfootImage("Brendan_L.gif"));
-        else if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("up"))setImage(new GreenfootImage("Brendan_B.gif"));
+        if(storage.theGame.direction.equals("right")) setImage(new GreenfootImage(gender + "_R.gif"));
+        else if(storage.theGame.direction.equals("down"))setImage(new GreenfootImage(gender + "_F.gif"));
+        else if(storage.theGame.direction.equals("left"))setImage(new GreenfootImage(gender + "_L.gif"));
+        else if(storage.theGame.direction.equals("up"))setImage(new GreenfootImage(gender + "_B.gif"));
     }    
 }
