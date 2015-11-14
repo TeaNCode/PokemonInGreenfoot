@@ -14,6 +14,7 @@ public class Gameworld extends World
     public boolean startMenu;
     public int delay;
     static String direction;
+    static SimpleTimer SystemTimer;
     /**
      * Constructor for objects of class Gameworld.
      * 
@@ -27,6 +28,7 @@ public class Gameworld extends World
         {
             setBackground("White.png");
             SaveData savedata = new SaveData(true);
+            SystemTimer = new SimpleTimer(0);
             addObject(new Textbox("Welcome to the world of Pokémon!\nPlease tell me a bit about yourself.\nAre you a boy or a girl?\nTEXTBOX.DNEXT","001intro"),300,350);
         }
         else if(typ.equals("continuegame"))
@@ -34,6 +36,7 @@ public class Gameworld extends World
             SaveData savedata = new SaveData();
             if(!savedata.loaded)
             SaveReader.loadSave();
+            SystemTimer = new SimpleTimer(savedata.Time);
             startGame();
         }
         else System.out.println("Fatal Error: invalid save-handling type");
