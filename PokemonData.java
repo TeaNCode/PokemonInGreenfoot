@@ -8,7 +8,7 @@ public class PokemonData
 {
     // Pokemon Ints format {Base HP,Base Attack, Base Defense, Base Special attack
     //  , Base Special Defense, Base Speed, Type 1, Type 2 (If none type Type 1 again), Catch Rate
-    //  , Base Exp. yield (Gen V+), EV Yield 1(First != 0 left to right), EV Yield 2, Gender value
+    //  , Base Exp. yield (Gen V+), EV Yield 1(First != 0 left to right), EV Yield 2, Gender ratio value
     //  , Lower hatch time value / 255, Base friendship, Level up type, Egg group 1
     //  , Egg group 2};
     // Based on Bulbapedia's 'Pokémon base stats data structure in Generation III'
@@ -27,6 +27,16 @@ public class PokemonData
     String[] charmanderStrings = {"Charmander","Lizard Pokémon","S",null,null,null,"Blaze",null};
     int[] charmeleonInts = {58,64,58,80,65,80,10,10,45,142,1,1,31,21,70,3,1,15};
     String[] charmeleonStrings = {"Charmeleon","Flame Pokémon","SA","S",null,null,"Blaze",null};
+    int[] charizardInts = {78,84,78,109,85,100,10,2,45,240,3,0,31,21,70,3,1,15};
+    String[] charizardStrings = {"Charizard","Flame Pokémon","SA",null,null,null,"Blaze",null};
+    int[] squirtleInts = {44,48,65,50,64,43,11,11,45,63,1,0,31,21,70,3,1,2};
+    String[] squirtleStrings = {"Squirtle","Tiny Turtle Pokémon","D",null,null,null,"Torrent",null};
+    int[] wartortleInts = {59,63,80,65,80,58,11,11,45,142,1,1,31,21,70,3,1,2};
+    String[] wartortleStrings = {"Wartortle","Turtle Pokémon","D","SD",null,null,"Torrent",null};
+    int[] blastoiseInts = {79,83,100,85,105,78,11,11,45,239,3,0,31,21,70,3,1,2};
+    String[] blastoiseStrings = {"Blastoise","Shellfish Pokémon","SD",null,null,null,"Torrent",null};
+    int[] caterpieInts = {45,30,35,20,20,45,6,6,255,39,1,0,127,11,70,0,4,0};
+    String[] caterpieStrings = {"Caterpie","Worm Pokémon","HP",null,null,null,"Shield Dust",null};
     int[][] dataInts = new int[151][];
     String[][] dataStrings = new String[151][];
     /**

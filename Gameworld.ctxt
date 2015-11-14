@@ -16,4 +16,6 @@ comment6.params=
 comment6.target=void\ menu()
 comment7.params=stage
 comment7.target=void\ intro(int)
-numComments=8
+comment8.params=
+comment8.target=void\ startGame()
+numComments=9

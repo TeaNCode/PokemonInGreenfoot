@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.Scanner;
 import java.util.NoSuchElementException;
 /**
@@ -9,17 +8,10 @@ import java.util.NoSuchElementException;
  */
 public class SaveReader  
 {
-    /**
-     * Constructor for objects of class SaveReader
-     */
-    public SaveReader()
-    {
-        
-    }
-    
     static void loadSave()
     {
         SaveData savedata = new SaveData();
+        //Insert code here, possibly refer to the above imports
         savedata.loaded = true;
     }
 }

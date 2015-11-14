@@ -64,7 +64,7 @@ public class Save
         String.valueOf(savedata.Thunder) + " " + String.valueOf(savedata.Rainbow) + " " + 
         String.valueOf(savedata.Soul) + " " + String.valueOf(savedata.Marsh) + " \n" + 
         String.valueOf(savedata.Volcano) + " " + String.valueOf(savedata.Earth) + " " +
-        savedata.ColorString;
+        savedata.ColorString + " " + String.valueOf(savedata.Time) + " ";
         writeSave(toSave);
     }
     

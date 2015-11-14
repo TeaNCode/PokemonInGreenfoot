@@ -20,7 +20,7 @@ public class TitleMenu extends World
         addObject(new Button("start"),300,240);
         addObject(new Display("https://github.com/TeaNCode/PokemonInGreenfoot"
         ,20,java.awt.Color.WHITE),415,385);
-        //Greenfoot.setWorld(new Gameworld("newgame")); //For quick testing
-        //Greenfoot.start();
+        Greenfoot.start();
+        Greenfoot.setSpeed(50);
     }
 }

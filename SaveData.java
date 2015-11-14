@@ -25,6 +25,7 @@ public class SaveData
     static boolean Earth;
     static java.awt.Color Color;
     static String ColorString;
+    static long Time;
     static int[][] Party = new int[5][];
     /**
      * Constructor for objects of class SaveData
@@ -51,6 +52,7 @@ public class SaveData
             Volcano = false;
             Earth = false;
             Color = java.awt.Color.BLACK;
+            Time = 0;
         }
     }
     /**
