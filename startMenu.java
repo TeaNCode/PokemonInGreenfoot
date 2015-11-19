@@ -10,6 +10,9 @@ public class startMenu extends Actor
 {
     static Button buttons[] = new Button[6];
     private boolean once;
+    /**
+     * 
+     */
     public startMenu()
     {
         setImage("backg.jpg");

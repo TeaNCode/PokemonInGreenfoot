@@ -23,8 +23,8 @@ public class Letter extends Actor
         index = indx;
         letter = lttr;
         type = typ;
-        charToWrite = 1;
-        if(type.contains("Name"))setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
+        charToWrite = 0;
+        if(type.contains("Name"))updateKeyboard();
         if(type.contains("Display")) setImage(new GreenfootImage("_",70,Color.BLACK,new Color(0,0,0,0)));
         SaveData savedata = new SaveData();
         if(type.contains("Name")) savedata.Letters[index] = this;
@@ -50,8 +50,8 @@ public class Letter extends Actor
     }
 
     /**
-     * Act - do whatever the Letter wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Checks what type this letter is, then checks if it has been clicked on. If it is a display
+     * letter then it will refresh itself.
      */
     public void act() 
     {
@@ -62,21 +62,21 @@ public class Letter extends Actor
         }
         else if(type.contains("Del"))
         {
-            //System.out.println(type + " contains Del");
             if(Greenfoot.mouseClicked(this))delChar();
         }
         else if(type.contains("Done"))
         {
-            //System.out.println(type + " contains Done");
             if(Greenfoot.mouseClicked(this))done();
         }
         else if(type.contains("Display") && !done)
         {
-            //System.out.println(type + " contains Display and not done");
             updatePicture();
         }
     }    
 
+    /**
+     * Called by Display type letters. Refreshes the display to make sure it is current.
+     */
     public void updatePicture()
     {
         SaveData savedata = new SaveData();
@@ -88,44 +88,48 @@ public class Letter extends Actor
                     new Color(0,0,0,0)));
     }
 
+    /**
+     * Called by the actual letters that you click on to display the name. Shows what letter it stands
+     * for.
+     */
     public void updateKeyboard()
     {
-        if(type.contains("Name")) setImage(new GreenfootImage(letter,50,Color.BLACK,
-                    new Color(0,0,0,0)));
+        setImage(new GreenfootImage(letter,50,Color.BLACK,new Color(0,0,0,0)));
     }
 
+    /**
+     * This is how the legit letters that you click on update the name. It updates the name then fills it with
+     * underscores.
+     */
     public void updateName()
     {
         SaveData savedata = new SaveData();
-        if(type.startsWith("P") && savedata.Name == "nullERRORplox") 
-            savedata.Name = letter + "_________";
-        else if(type.startsWith("R") && savedata.RName == "nullERRORplox")
-            savedata.RName = letter + "_________";
-        else
+        if(type.startsWith("P"))
+            shortName = savedata.Name.substring(0,charToWrite);
+        else if(type.startsWith("R"))
+            shortName = savedata.RName.substring(0,charToWrite);
+        if(shortName.length() < 10)
         {
             if(type.startsWith("P"))
-                shortName = savedata.Name.substring(0,charToWrite);
-            else if(type.startsWith("R"))
-                shortName = savedata.RName.substring(0,charToWrite);
-            if(shortName.length() < 10)
             {
-                if(type.startsWith("P"))
-                {
-                    savedata.Name = savedata.Name.substring(0,charToWrite) + letter;
-                    savedata.Name = savedata.Name + "__________";
-                    if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
-                }
-                else if(type.startsWith("R"))
-                {
-                    savedata.RName = savedata.RName.substring(0,charToWrite) + letter;
-                    savedata.RName = savedata.RName + "__________";
-                    if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);
-                }
-                charToWrite++;
+                savedata.Name = savedata.Name.substring(0,charToWrite) + letter;
+                savedata.Name = savedata.Name + "__________";
+                if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
             }
+            else if(type.startsWith("R"))
+            {
+                savedata.RName = savedata.RName.substring(0,charToWrite) + letter;
+                savedata.RName = savedata.RName + "__________";
+                if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);
+            }
+            charToWrite++;
         }
     }
 
+    /**
+     * This deletes a character from a name. It also lowers charToWrite. It doesn't check if it is making
+     * charToWrite negative, which would throw an error.
+     */
     public void delChar()
     {
         SaveData savedata = new SaveData();
@@ -145,43 +149,37 @@ public class Letter extends Actor
         }
     }
 
+    /**
+     * Asks if the player is done inputting the name.
+     */
     public void done()
     {
         SaveData savedata = new SaveData();
         if(type.startsWith("P") && savedata.Name != "nullERRORplox")
         {
             savedata.Name = savedata.Name.substring(0,charToWrite);
-            confirmPName();
+            done = true;
+            ObjectStorage objectstorage = new ObjectStorage();
+            objectstorage.theGame.addObject(new Textbox("So your name is " + savedata.Name + ".\n"
+                    + "BUTTON.CONFIRMATION" + "\nname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         }
         else if(type.startsWith("R") && savedata.RName != "nullERRORplox")
         {
             savedata.RName = savedata.RName.substring(0,charToWrite);
-            confirmRName();
+            done = true;
+            ObjectStorage objectstorage = new ObjectStorage();
+            if(savedata.Male)
+                objectstorage.theGame.addObject(new Textbox("So her name is " + savedata.RName + ".\n"
+                        + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
+            else 
+                objectstorage.theGame.addObject(new Textbox("So his name is " + savedata.RName + ".\n"
+                        + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         }
     }
 
-    public void confirmPName()
-    {
-        done = true;
-        ObjectStorage objectstorage = new ObjectStorage();
-        SaveData savedata = new SaveData();
-        objectstorage.theGame.addObject(new Textbox("So your name is " + savedata.Name + ".\n"
-                + "BUTTON.CONFIRMATION" + "\nname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
-    }
-
-    public void confirmRName()
-    {
-        done = true;
-        ObjectStorage objectstorage = new ObjectStorage();
-        SaveData savedata = new SaveData();
-        if(savedata.Male)
-        objectstorage.theGame.addObject(new Textbox("So her name is " + savedata.RName + ".\n"
-                + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
-        else 
-        objectstorage.theGame.addObject(new Textbox("So his name is " + savedata.RName + ".\n"
-                + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
-    }
-    
+    /**
+     * Reverts the cutting of the player's name done during done().
+     */
     public void uncutName(String pre)
     {
         SaveData savedata = new SaveData();

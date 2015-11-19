@@ -15,8 +15,8 @@ public class OButton extends Actor
     private Map<String, Color> colorStringMap = new HashMap<String, Color>();
     static boolean update;
     /**
-     * Executed when Button added to world.
-     * Button type needs to be specified
+     * These buttons are used in the options menu. This class was made to not clutter the button
+     * class further.
      */
     public OButton(String typ)
     {
@@ -27,8 +27,7 @@ public class OButton extends Actor
     }
 
     /**
-     * Act - do whatever the OButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Checks if this has been clicked on. Also checks if the picture needs to be updated.
      */
     public void act() 
     {
@@ -54,7 +53,7 @@ public class OButton extends Actor
     }    
 
     /**
-     * Sets the actor's image depending on the type
+     * Sets the actor's image depending on the type.
      */
     public void setPicture()
     {
@@ -88,6 +87,9 @@ public class OButton extends Actor
         }
     }
 
+    /**
+     * Populates the map colorStringMap which is used for converting Strings to colors.
+     */
     public void colorStringMapping()
     {
         colorStringMap.put("Black",Color.BLACK);
