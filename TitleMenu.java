@@ -9,7 +9,7 @@ import greenfoot.*;
 public class TitleMenu extends World
 {
     /**
-     * Constructor for objects of class TitleMenu.
+     * Displays the title menu, sets execution speed, and starts the game
      * 
      */
     public TitleMenu()

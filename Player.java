@@ -10,22 +10,23 @@ public class Player extends Actor
 {
     private ObjectStorage storage = new ObjectStorage();
     private String gender;
-    public Player(int x, int y,int rotate)
+    /**
+     * Sets the player's image according to their gender and direction.
+     */
+    public Player(int rotate)
     {
         SaveData savedata = new SaveData();
         if(savedata.Male)gender = "Brendan";
         else gender = "May";
         ObjectStorage storage = new ObjectStorage();
         storage.player = this;
-        setLocation(x,y);
         if(rotate == 0) setImage(new GreenfootImage(gender + "_R.gif"));
         else if(rotate == 90) setImage(new GreenfootImage(gender + "_F.gif"));
         else if(rotate == 180) setImage(new GreenfootImage(gender + "_L.gif"));
         else if(rotate == 270) setImage(new GreenfootImage(gender + "_B.gif"));
     }
     /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Checks if a directional button has been pressed and change the image accordingly.
      */
     public void act() 
     {

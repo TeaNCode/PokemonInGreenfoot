@@ -10,7 +10,8 @@ public class Options extends World
 {
 
     /**
-     * Constructor for objects of class Options.
+     * This world is the options screen. It has a bunch of buttons that change
+     * various settings.
      */
     public Options()
     {    

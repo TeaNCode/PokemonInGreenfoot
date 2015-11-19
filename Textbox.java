@@ -17,7 +17,7 @@ public class Textbox extends Actor
     private String no;
     private boolean next;
     private boolean dNext;
-    private Scanner scanner;
+    private Scanner textInput;
     private int count;
     private boolean once;
     private Button bYes;
@@ -25,6 +25,10 @@ public class Textbox extends Actor
     private boolean confirmation;
     private String action;
     private int actionNum;
+    /**
+     * Adds a scanner, textInput, that contains the text that will be displayed.
+     * Also checks if a confirmation box is supposed to be displayed.
+     */
     public Textbox(String txt)
     {
         text = txt;
@@ -32,9 +36,9 @@ public class Textbox extends Actor
         confirmation = false;
         line1 = null;
         line2 = null;
-        scanner = new Scanner(text);
-        line1 = scanner.nextLine();
-        if(scanner.hasNext()) line2 = scanner.nextLine();
+        textInput = new Scanner(text);
+        line1 = textInput.nextLine();
+        if(textInput.hasNext()) line2 = textInput.nextLine();
         if(line2.equals("BUTTON.CONFIRMATION"))
         {
             once = false;
@@ -43,11 +47,16 @@ public class Textbox extends Actor
         else
         {
             setImage(updateImg(""));
-            if(scanner.hasNext()) next = true;
+            if(textInput.hasNext()) next = true;
         }
         count = 0;
     }
 
+    /**
+     * Adds a scanner, textInput, that contains the text that will be displayed.
+     * Also checks if a confirmation box is supposed to be displayed.
+     * These text boxes will also preform an action when they're closed.
+     */
     public Textbox(String txt,String acion)
     {
         action = acion.substring(3,acion.length());
@@ -57,11 +66,11 @@ public class Textbox extends Actor
         confirmation = false;
         line1 = null;
         line2 = null;
-        scanner = new Scanner(text);
-        line1 = scanner.nextLine();
-        if(scanner.hasNext())
+        textInput = new Scanner(text);
+        line1 = textInput.nextLine();
+        if(textInput.hasNext())
         {
-            line2 = scanner.nextLine();
+            line2 = textInput.nextLine();
             if(line2.equals("BUTTON.CONFIRMATION"))
             {
                 once = false;
@@ -74,13 +83,17 @@ public class Textbox extends Actor
             }
         }
         setImage(updateImg(""));
-        if(scanner.hasNext()) next = true;
+        if(textInput.hasNext()) next = true;
         count = 0;
     }
 
     /**
-     * Act - do whatever the Textbox wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Check if a confirmation dialogue should be created.
+     * Then check if this has been clicked and if it has more text. It will update
+     * to display the next lines of text in the scanner.
+     * Then check if this has been clicked on and doesn't have more to display. If
+     * so it will delete itself, and possibly take action.
+     * Finally if it has 'next' it will update it's image to indicate so.
      */
     public void act() 
     {
@@ -95,8 +108,8 @@ public class Textbox extends Actor
             dNext = false;
             line1 = null;
             line2 = null;
-            line1 = scanner.nextLine();
-            if(scanner.hasNext()) line2 = scanner.nextLine();
+            line1 = textInput.nextLine();
+            if(textInput.hasNext()) line2 = textInput.nextLine();
             if(line2.equals("BUTTON.CONFIRMATION"))
             {
                 once = false;
@@ -110,7 +123,7 @@ public class Textbox extends Actor
             else
             {
                 setImage(updateImg(""));
-                if(scanner.hasNext()) next = true;
+                if(textInput.hasNext()) next = true;
             }
             count = 0;
         }
@@ -129,7 +142,10 @@ public class Textbox extends Actor
             else setImage(updateImg("TE"));
         }
     }    
-
+    
+    /**
+     * Update this textbox's image to display if there is more to display.
+     */
     public GreenfootImage updateImg(String end)
     {
         GreenfootImage Background = new GreenfootImage("White600x100" + end + ".png"); 
@@ -142,15 +158,18 @@ public class Textbox extends Actor
         if(line2 != null) Background.drawString(line2,10,75);
         return Background;
     }
-
+    
+    /**
+     * Add a comfirmation dialogue.
+     */
     public void confirmation()
     {
         ObjectStorage objectstorage = new ObjectStorage();
         confirmation = true;
-        String purpose = scanner.nextLine();
-        line2 = scanner.nextLine();
-        String yes = scanner.nextLine();
-        String no = scanner.nextLine();
+        String purpose = textInput.nextLine();
+        line2 = textInput.nextLine();
+        String yes = textInput.nextLine();
+        String no = textInput.nextLine();
         bYes = new Button("tyes",this,yes,purpose);
         bNo = new Button("tno",this,no,purpose);
         objectstorage.theGame.addObject(bYes,300,375);
@@ -158,12 +177,15 @@ public class Textbox extends Actor
         setImage(updateImg(""));
     }
 
+    /**
+     * Is activated if the yes button is clicked while a confirmation is being
+     * displayed.
+     */
     public void yes(String action)
     {
         if(action.equals("gender"))
         {
             ObjectStorage objectstorage = new ObjectStorage();
-            //objectstorage.theGame.addKeyboard("P");
             objectstorage.theGame.addObject(new Textbox("Alright so what is your " + 
                     "name?\nTEXTBOX.DNEXT","002intro"),300,350);
             getWorld().removeObject(bYes);
@@ -193,6 +215,10 @@ public class Textbox extends Actor
         }
     }
 
+    /**
+     * Is activated if the no button is clicked while a confirmation is being
+     * displayed.
+     */
     public void no(String action)
     {
         if(action.equals("name"))

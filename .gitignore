@@ -5,22 +5,20 @@
 # Don't need to distribute save files here
 Save.txt
 Save.a
-#Aaron stahp making userhome files
-greenfoot-debuglog.txt #User debug log, not needed
-allclasses-frame.html
-allclasses-noframe.html
-constant-values.html
-Gameworld.html
-index.html
-logfile.txt
-package-frame.html
-package-list
-package-summary.html
+
+#################
+## Greenfoot
+#################
+
+greenfoot-debuglog.txt
+*.html
 inherit.gif
 stylesheet.css
 editor.keys
 greenfoot-debuglog.txt
 moe.properties
+logfile.txt
+package-list
 
 #################
 ## Eclipse
@@ -51,7 +49,6 @@ local.properties
 
 # PDT-specific
 .buildpath
-
 
 #################
 ## Visual Studio

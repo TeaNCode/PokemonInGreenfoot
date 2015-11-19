@@ -16,8 +16,8 @@ public class Gameworld extends World
     static String direction;
     static SimpleTimer SystemTimer;
     /**
-     * Constructor for objects of class Gameworld.
-     * 
+     * Check what type of world is being added and load the game based on that. Prints an error if the type is invalid.
+     * newgame starts a new game and continuegame attempts to load a previous save.
      */
     public Gameworld(String typ)
     {    
@@ -41,7 +41,11 @@ public class Gameworld extends World
         }
         else System.out.println("Fatal Error: invalid save-handling type");
     }
-
+    
+    /**
+     * Check if the player is attempting to move, and move the world according to that.
+     * Also checks if the menu is being opened.
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) direction = "right";
@@ -57,20 +61,31 @@ public class Gameworld extends World
             menu();
         }
     }
-
+    
+    /**
+     * Saves the game to 'Save.a'
+     */
     public void Save()
     {
         Save save = new Save("Save.a");
         save.assembleSave();
     }
-
+    
+    /**
+     * Displays the buttons to allow the player to chose their gender during newgame.
+     * It clears the world before that.
+     */
     public void pickGender()
     {
         removeObjects(getObjects(null));
         addObject(new Button("male"),100,200);
         addObject(new Button("female"),500,200);
     }
-
+    
+    /**
+     * Clears the world then adds a keyboard to allow the player to input the name of something.
+     * It is currently limited to Player name, "P", or Rival name, "R".
+     */
     public void addKeyboard(String pre)
     {
         removeObjects(getObjects(null));
@@ -94,6 +109,9 @@ public class Gameworld extends World
         addObject(new Letter(pre + "Del"),500,250);
     }
     
+    /**
+     * If the menu isn't being shown, it shows it. If it is being shows then it gets deleted.
+     */
     public void menu()
     {
         if(!startMenu)
@@ -120,6 +138,9 @@ public class Gameworld extends World
         }
     }
     
+    /**
+     * Progresses the intro according to the stage passed here.
+     */
     public void intro(int stage)
     {
         if(stage == 1) pickGender();
@@ -127,12 +148,15 @@ public class Gameworld extends World
         else if(stage == 3) addKeyboard("R");
     }
     
+    /**
+     * Starts the game, adding all the objects into the world.
+     */
     public void startGame()
     {
         setBackground("White.png");
         removeObjects(getObjects(null));
         addObject(new MovingTiles("Black.gif"),300,200);
-        addObject(new Player(300,200,90),300,200);
+        addObject(new Player(90),300,200);
         Greenfoot.setSpeed(33);
     }
 }

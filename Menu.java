@@ -10,7 +10,7 @@ public class Menu extends World
 {
 
     /**
-     * Constructor for objects of class Menu.
+     * Displays the menu. Continue and Options will be avalible if a save exists.
      * 
      */
     public Menu()

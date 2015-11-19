@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=Player
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Player\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=x\ y\ rotate
-comment1.target=Player(int,\ int,\ int)
+comment1.params=rotate
+comment1.target=Player(int)
+comment1.text=\r\n\ Sets\ the\ player's\ image\ according\ to\ their\ gender\ and\ direction.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\r\n\ Checks\ if\ a\ directional\ button\ has\ been\ pressed\ and\ change\ the\ image\ accordingly.\r\n
 numComments=3
