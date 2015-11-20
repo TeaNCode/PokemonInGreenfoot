@@ -11,7 +11,8 @@ public class startMenu extends Actor
     static Button buttons[] = new Button[6];
     private boolean once;
     /**
-     * 
+     * Adds a start menu to the world. Prepares to add buttons, and it will retain a reference to
+     * them.
      */
     public startMenu()
     {
@@ -27,8 +28,7 @@ public class startMenu extends Actor
     }
 
     /**
-     * Act - do whatever the startMenu wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Add the buttons once.
      */
     public void act() 
     {
@@ -43,6 +43,9 @@ public class startMenu extends Actor
         }
     }    
 
+    /**
+     * Deletes this and the buttons that it added
+     */
     public void delete()
     {
         for(int i = 0; i < 6; i++)

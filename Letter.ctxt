@@ -27,5 +27,5 @@ comment8.target=void\ done()
 comment8.text=\r\n\ Asks\ if\ the\ player\ is\ done\ inputting\ the\ name.\r\n
 comment9.params=pre
 comment9.target=void\ uncutName(java.lang.String)
-comment9.text=\r\n\ \r\n
+comment9.text=\r\n\ Reverts\ the\ cutting\ of\ the\ player's\ name\ done\ during\ done().\r\n
 numComments=10
