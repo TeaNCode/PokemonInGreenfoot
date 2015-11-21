@@ -15,6 +15,7 @@ public class Display extends Actor
     {
         setImage(new GreenfootImage(txt,40,Color.BLACK,new Color(0,0,0,0)));
     }
+
     /**
      * A constructor that displays 'txt' with a size of 'siz' in Black with a Transparent background
      */
@@ -22,6 +23,7 @@ public class Display extends Actor
     {
         setImage(new GreenfootImage(txt,siz,Color.BLACK,new Color(0,0,0,0)));
     }
+
     /**
      * A constructor that displays 'txt' with a size of 'siz' in 'colour1' with a Transparent background
      */
@@ -29,6 +31,7 @@ public class Display extends Actor
     {
         setImage(new GreenfootImage(txt,siz,colour1,new Color(0,0,0,0)));
     }
+
     /**
      * A constructor that displays 'txt' with a size of 'siz' in 'colour1' with a 'colour2' background
      */

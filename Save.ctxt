@@ -12,6 +12,7 @@ comment3.target=void\ assembleSave()
 comment3.text=\r\n\ Assemble\ the\ variables\ in\ a\ string\ format\ for\ writing\ to\ text\ file\ and\ then\ writes\ it,\r\n\ with\ a\ backup\ created\ encase\ saving\ fails\r\n
 comment4.params=toWrite
 comment4.target=void\ writeSave(java.lang.String)
+comment4.text=\r\n\ Writes\ the\ Stringified\ save\ data.\ Writes\ 'toWrite'\ to\ 'path'.\r\n
 comment5.params=
 comment5.target=void\ getColorString()
 comment5.text=\r\n\ Loads\ the\ colorMap\ HashMap\ and\ then\ sets\ SaveData.ColorString\r\n

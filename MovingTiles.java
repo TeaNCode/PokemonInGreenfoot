@@ -9,19 +9,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MovingTiles extends Actor
 {
     private ObjectStorage storage = new ObjectStorage();
+    /**
+     * Sets the tile to the image passed to it.
+     */
     public MovingTiles(String image)
     {
-       setImage(new GreenfootImage(image)); 
+        setImage(new GreenfootImage(image)); 
     }
-    
+
+    /**
+     * Check if should move.
+     */
     public void act() 
     {
         checkMove();
     }  
-    
+
+    /**
+     * Check if should move and then do so.
+     */
     public void checkMove()
     {
-       if(storage.theGame.direction.equals("right")) setLocation(getX() - 60, getY());
+        if(storage.theGame.direction.equals("right")) setLocation(getX() - 60, getY());
         else if(storage.theGame.direction.equals("down"))setLocation(getX(), getY() - 60);
         else if(storage.theGame.direction.equals("left"))setLocation(getX() + 60, getY());
         else if(storage.theGame.direction.equals("up")) setLocation(getX(), getY() + 60);

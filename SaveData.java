@@ -28,7 +28,7 @@ public class SaveData
     static long Time;
     static int[][] Party = new int[5][];
     /**
-     * Constructor for objects of class SaveData
+     * Stores the player's save data while they are playing.
      * WARNING: THIS CONSTRUCTOR SHOULD NOT BE USED EXCEPT FOR INITIALIZING A NEW GAME
      * IT WILL OVERWRITE EVERYTHING IN SAVEDATA
      */
@@ -55,11 +55,13 @@ public class SaveData
             Time = 0;
         }
     }
+
     /**
-     * This constructor is used when accessing variables from SaveData
+     * Stores the player's save data while they are playing. This constructor is used 
+     * when accessing variables from SaveData
      */
     public SaveData()
     {
-        
+
     }
 }

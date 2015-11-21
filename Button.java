@@ -25,7 +25,11 @@ public class Button extends Actor
         setPicture();
         delete = false;
     }
-    
+
+    /**
+     * These buttons have been added by a Textbox. They are yes and no buttons, and do something
+     * upon being clicked on.
+     */
     public Button(String typ, Textbox Textbox, String disply, String acion)
     {
         type = typ; //Store type for later use
@@ -37,13 +41,13 @@ public class Button extends Actor
     }
 
     /**
-     * Act - do whatever the Button wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Checks if this has been clicked on. If so it then goes through a list of types and
+     * executes the proper action.
      */
     public void act() 
     {
         if(Greenfoot.isKeyDown("enter") && type.equals("start"))
-        Greenfoot.setWorld(new Menu());
+            Greenfoot.setWorld(new Menu());
         if(Greenfoot.mouseClicked(this))
         {
             SaveData savedata = new SaveData();
@@ -113,11 +117,14 @@ public class Button extends Actor
             case "gOptions": setImage(new GreenfootImage("Options",40,Color.LIGHT_GRAY,
                     new Color(0,0,0,0))); break;
             case "start": setImage(new GreenfootImage("Press Enter to start",40,Color.LIGHT_GRAY,
-            new Color(0,0,0,0))); break;
-            
+                    new Color(0,0,0,0))); break;
+
         }
     }
 
+    /**
+     * Changes the keyboard's case to lower.
+     */
     public void lowerCase()
     {
         SaveData savedata = new SaveData();
@@ -133,6 +140,9 @@ public class Button extends Actor
         delete = true;
     }
 
+    /**
+     * Sets the keyboard's case to upper
+     */
     public void upperCase()
     {
         SaveData savedata = new SaveData();
@@ -147,16 +157,19 @@ public class Button extends Actor
         getWorld().addObject(new Button("lowercase"),getX(),getY());
         delete = true;
     }
-    
+
+    /**
+     * Makes sure the player is happy with their gender.
+     */
     public void confirmGender()
     {
         ObjectStorage objectstorage = new ObjectStorage();
         SaveData savedata = new SaveData();
         if(savedata.Male)
-        objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
-        + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
+            objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
+                    + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else
-        objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
-        + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
+            objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
+                    + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }

@@ -68,6 +68,9 @@ public class Save
         writeSave(toSave);
     }
     
+    /**
+     * Writes the Stringified save data. Writes 'toWrite' to 'path'.
+     */
     public void writeSave(String toWrite)
     {
         try
