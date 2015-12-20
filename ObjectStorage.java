@@ -10,6 +10,7 @@ public class ObjectStorage
     static Letter done;
     static startMenu StartMenu;
     static Player player;
+    static String lastWorld;
     /**
      * Use this constructor for accessing objects of the world remotely
      */

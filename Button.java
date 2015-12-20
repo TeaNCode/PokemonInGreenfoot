@@ -69,8 +69,8 @@ public class Button extends Actor
                 case "exit": objectStorage.StartMenu.delete(); 
                 objectStorage.theGame.startMenu = false; break;
                 case "options":if(!savedata.loaded) SaveReader.loadSave();
-                Greenfoot.setWorld(new Options()); break;
-                case "gOptions":SaveReader.loadSave(); Greenfoot.setWorld(new Options()); break;
+                Greenfoot.setWorld(new Options()); ObjectStorage.lastWorld = "Game"; break;
+                case "gOptions":SaveReader.loadSave(); Greenfoot.setWorld(new Options()); ObjectStorage.lastWorld = "Menu"; break;
                 case "start": Greenfoot.setWorld(new Menu()); break;
             }
         }

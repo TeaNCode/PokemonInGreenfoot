@@ -156,6 +156,7 @@ public class Gameworld extends World
         setBackground("White.png");
         removeObjects(getObjects(null));
         addObject(new MovingTiles("Black.gif"),300,200);
+        addObject(new MovingTiles("Bed60x80.gif"),420,200);
         addObject(new Player(90),300,200);
         Greenfoot.setSpeed(33);
     }
