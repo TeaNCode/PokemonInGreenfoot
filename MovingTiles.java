@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MovingTiles extends Actor
 {
     private ObjectStorage storage = new ObjectStorage();
+    private boolean collision = false;
+    private int colYOffset = 0;
     /**
      * Sets the tile to the image passed to it.
      */
@@ -16,7 +18,20 @@ public class MovingTiles extends Actor
     {
         setImage(new GreenfootImage(image)); 
     }
-
+    
+    public MovingTiles(String image, boolean col)
+    {
+        setImage(new GreenfootImage(image));
+        collision = col;
+    }
+    
+    public MovingTiles (String image, boolean col, int yOff)
+    {
+        setImage(new GreenfootImage(image));
+        collision = col;
+        colYOffset = yOff;
+    }
+    
     /**
      * Check if should move.
      */

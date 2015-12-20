@@ -14,6 +14,7 @@ public class Gameworld extends World
     public boolean startMenu;
     public int delay;
     static String direction;
+    static String face;
     static SimpleTimer SystemTimer;
     /**
      * Check what type of world is being added and load the game based on that. Prints an error if the type is invalid.
@@ -48,10 +49,24 @@ public class Gameworld extends World
      */
     public void act()
     {
-        if(Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) direction = "right";
-        else if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))direction = "down";
-        else if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left"))direction = "left";
-        else if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("up")) direction = "up";
+        if(Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) 
+        {
+            ObjectStorage.player.setLocation(ObjectStorage.player.getX() - 60, ObjectStorage.player.getY());
+            MovingTile touchingTile = ObjectStorage.player.getOneIntersectingObject(MovingTiles.class);
+            direction = "right";
+        }
+        else if(Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down"))
+        {
+            direction = "down";
+        }
+        else if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left"))
+        {
+            direction = "left";
+        }
+        else if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("up")) 
+        {
+            direction = "up";
+        }
         else direction = "nah";
         //if(getObjects(null).isEmpty()) addObject(new Textbox("Congratulations on creating your "
         //+ "own character!\n How does it look?\n Another line!"),300,350); //Textbox demonstration
@@ -119,16 +134,17 @@ public class Gameworld extends World
             delay = 20;
             startMenu = true;
             //   \/ below is the code for calendar which only appears with the menu, to cahnge this copy lines 89-96 \/
-            Calendar test = new GregorianCalendar();
+            /**Calendar test = new GregorianCalendar();
             int hour = test.get(Calendar.HOUR_OF_DAY);
             if (test.get(Calendar.HOUR_OF_DAY) > 12){ 
                 hour = hour - 12;
-                
             }
+            **/
             addObject(new startMenu(), 508, 148);
-            GreenfootImage bg = getBackground();
+            /**GreenfootImage bg = getBackground();
             bg.setColor(Color.GREEN);
             bg.drawString("Today is "+(new Date()+";"+"\nalso known as "+hour+":"+test.get(Calendar.MINUTE)+"."), 100, 30);
+            **/
         }
         else 
         {
@@ -157,6 +173,7 @@ public class Gameworld extends World
         removeObjects(getObjects(null));
         addObject(new MovingTiles("Black.gif"),300,200);
         addObject(new MovingTiles("Bed60x80.gif"),420,200);
+        addObject(new MovingTiles("GoodComputer.gif"),180,160);
         addObject(new Player(90),300,200);
         Greenfoot.setSpeed(33);
     }
