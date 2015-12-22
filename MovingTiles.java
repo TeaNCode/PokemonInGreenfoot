@@ -8,9 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MovingTiles extends Actor
 {
-    private ObjectStorage storage = new ObjectStorage();
-    private boolean collision = false;
-    private int colYOffset = 0;
+    public boolean collision = false;
+    public int colY1 = 0;
+    public int colY2 = 0;
+    public int colX1 = 0;
+    public int colX2 = 0;
     /**
      * Sets the tile to the image passed to it.
      */
@@ -25,11 +27,14 @@ public class MovingTiles extends Actor
         collision = col;
     }
     
-    public MovingTiles (String image, boolean col, int yOff)
+    public MovingTiles (String image, boolean col, int xOff1, int xOff2, int yOff1, int yOff2)
     {
         setImage(new GreenfootImage(image));
         collision = col;
-        colYOffset = yOff;
+        colY1 = yOff1;
+        colY2 = yOff2;
+        colX1 = xOff1;
+        colX2 = xOff2;
     }
     
     /**
@@ -45,9 +50,9 @@ public class MovingTiles extends Actor
      */
     public void checkMove()
     {
-        if(storage.theGame.direction.equals("right")) setLocation(getX() - 60, getY());
-        else if(storage.theGame.direction.equals("down"))setLocation(getX(), getY() - 60);
-        else if(storage.theGame.direction.equals("left"))setLocation(getX() + 60, getY());
-        else if(storage.theGame.direction.equals("up")) setLocation(getX(), getY() + 60);
+        if(ObjectStorage.theGame.direction.equals("right")) setLocation(getX() - 60, getY());
+        else if(ObjectStorage.theGame.direction.equals("down"))setLocation(getX(), getY() - 60);
+        else if(ObjectStorage.theGame.direction.equals("left"))setLocation(getX() + 60, getY());
+        else if(ObjectStorage.theGame.direction.equals("up")) setLocation(getX(), getY() + 60);
     }
 }
