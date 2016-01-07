@@ -34,10 +34,9 @@ public class Gameworld extends World
         }
         else if(typ.equals("continuegame"))
         {
-            SaveData savedata = new SaveData();
-            if(!savedata.loaded)
+            if(!SaveData.loaded)
                 SaveReader.loadSave();
-            SystemTimer = new SimpleTimer(savedata.Time);
+            SystemTimer = new SimpleTimer(SaveData.Time);
             startGame();
         }
         else System.out.println("Fatal Error: invalid save-handling type");
@@ -187,8 +186,7 @@ public class Gameworld extends World
         else 
         {
             startMenu = false;
-            ObjectStorage objectStorage = new ObjectStorage();
-            objectStorage.StartMenu.delete();
+            ObjectStorage.StartMenu.delete();
         }
     }
 

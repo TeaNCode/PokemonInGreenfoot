@@ -18,8 +18,7 @@ public class startMenu extends Actor
     {
         setImage("backg.jpg");
         once = false;
-        ObjectStorage objectStorage = new ObjectStorage();
-        objectStorage.StartMenu = this;
+        ObjectStorage.StartMenu = this;
         String types[] = {"pokemon","items","me","save","options","exit"};
         for(int i = 0; i < 6; i++)
         {
@@ -35,10 +34,9 @@ public class startMenu extends Actor
         if(!once)
         {
             once = true;
-            ObjectStorage objectStorage = new ObjectStorage();
             for(int i = 0; i < 6; i++)
             {
-                objectStorage.theGame.addObject(buttons[i],508,70 + (30 * i));
+                ObjectStorage.theGame.addObject(buttons[i],508,70 + (30 * i));
             }
         }
     }    

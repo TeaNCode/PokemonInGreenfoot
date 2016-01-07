@@ -26,8 +26,7 @@ public class Letter extends Actor
         charToWrite = 0;
         if(type.contains("Name"))updateKeyboard();
         if(type.contains("Display")) setImage(new GreenfootImage("_",70,Color.BLACK,new Color(0,0,0,0)));
-        SaveData savedata = new SaveData();
-        if(type.contains("Name")) savedata.Letters[index] = this;
+        if(type.contains("Name")) SaveData.Letters[index] = this;
     }
 
     /**
@@ -44,8 +43,7 @@ public class Letter extends Actor
         {
             setImage(new GreenfootImage("Done",50,Color.BLACK,
                     new Color(0,0,0,0)));
-            ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.done = this;
+            ObjectStorage.done = this;
         }
     }
 
@@ -55,7 +53,6 @@ public class Letter extends Actor
      */
     public void act() 
     {
-        SaveData savedata = new SaveData();
         if(type.contains("Name"))
         {
             if(Greenfoot.mouseClicked(this))updateName();
@@ -79,12 +76,11 @@ public class Letter extends Actor
      */
     public void updatePicture()
     {
-        SaveData savedata = new SaveData();
-        if(type.startsWith("P") && savedata.Name != "nullERRORplox")
-            setImage(new GreenfootImage(savedata.Name.substring(index - 1, index),70,Color.BLACK,
+        if(type.startsWith("P") && SaveData.Name != "nullERRORplox")
+            setImage(new GreenfootImage(SaveData.Name.substring(index - 1, index),70,Color.BLACK,
                     new Color(0,0,0,0)));
-        else if(type.startsWith("R") && savedata.RName != "nullERRORplox")
-            setImage(new GreenfootImage(savedata.RName.substring(index - 1, index),70,Color.BLACK,
+        else if(type.startsWith("R") && SaveData.RName != "nullERRORplox")
+            setImage(new GreenfootImage(SaveData.RName.substring(index - 1, index),70,Color.BLACK,
                     new Color(0,0,0,0)));
     }
 
@@ -103,24 +99,23 @@ public class Letter extends Actor
      */
     public void updateName()
     {
-        SaveData savedata = new SaveData();
         if(type.startsWith("P"))
-            shortName = savedata.Name.substring(0,charToWrite);
+            shortName = SaveData.Name.substring(0,charToWrite);
         else if(type.startsWith("R"))
-            shortName = savedata.RName.substring(0,charToWrite);
+            shortName = SaveData.RName.substring(0,charToWrite);
         if(shortName.length() < 10)
         {
             if(type.startsWith("P"))
             {
-                savedata.Name = savedata.Name.substring(0,charToWrite) + letter;
-                savedata.Name = savedata.Name + "__________";
-                if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
+                SaveData.Name = SaveData.Name.substring(0,charToWrite) + letter;
+                SaveData.Name = SaveData.Name + "__________";
+                if(SaveData.Name.length() > 10) SaveData.Name = SaveData.Name.substring(0,10);
             }
             else if(type.startsWith("R"))
             {
-                savedata.RName = savedata.RName.substring(0,charToWrite) + letter;
-                savedata.RName = savedata.RName + "__________";
-                if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);
+                SaveData.RName = SaveData.RName.substring(0,charToWrite) + letter;
+                SaveData.RName = SaveData.RName + "__________";
+                if(SaveData.RName.length() > 10) SaveData.RName = SaveData.RName.substring(0,10);
             }
             charToWrite++;
         }
@@ -132,20 +127,19 @@ public class Letter extends Actor
      */
     public void delChar()
     {
-        SaveData savedata = new SaveData();
-        if(type.startsWith("P") && savedata.Name != "nullERRORplox")
+        if(type.startsWith("P") && SaveData.Name != "nullERRORplox")
         {
-            savedata.Name = savedata.Name.substring(0,charToWrite -  1);
+            SaveData.Name = SaveData.Name.substring(0,charToWrite -  1);
             charToWrite--;
-            savedata.Name = savedata.Name + "__________";
-            if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
+            SaveData.Name = SaveData.Name + "__________";
+            if(SaveData.Name.length() > 10) SaveData.Name = SaveData.Name.substring(0,10);
         }
-        else if(type.startsWith("R") && savedata.RName != "nullERRORplox")
+        else if(type.startsWith("R") && SaveData.RName != "nullERRORplox")
         {
-            savedata.RName = savedata.RName.substring(0,charToWrite -  1);
+            SaveData.RName = SaveData.RName.substring(0,charToWrite -  1);
             charToWrite--;
-            savedata.RName = savedata.RName + "__________";
-            if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);
+            SaveData.RName = SaveData.RName + "__________";
+            if(SaveData.RName.length() > 10) SaveData.RName = SaveData.RName.substring(0,10);
         }
     }
 
@@ -154,25 +148,22 @@ public class Letter extends Actor
      */
     public void done()
     {
-        SaveData savedata = new SaveData();
-        if(type.startsWith("P") && savedata.Name != "nullERRORplox")
+        if(type.startsWith("P") && SaveData.Name != "nullERRORplox")
         {
-            savedata.Name = savedata.Name.substring(0,charToWrite);
+            SaveData.Name = SaveData.Name.substring(0,charToWrite);
             done = true;
-            ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.theGame.addObject(new Textbox("So your name is " + savedata.Name + ".\n"
+            ObjectStorage.theGame.addObject(new Textbox("So your name is " + SaveData.Name + ".\n"
                     + "BUTTON.CONFIRMATION" + "\nname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         }
-        else if(type.startsWith("R") && savedata.RName != "nullERRORplox")
+        else if(type.startsWith("R") && SaveData.RName != "nullERRORplox")
         {
-            savedata.RName = savedata.RName.substring(0,charToWrite);
+            SaveData.RName = SaveData.RName.substring(0,charToWrite);
             done = true;
-            ObjectStorage objectstorage = new ObjectStorage();
-            if(savedata.Male)
-                objectstorage.theGame.addObject(new Textbox("So her name is " + savedata.RName + ".\n"
+            if(SaveData.Male)
+                ObjectStorage.theGame.addObject(new Textbox("So her name is " + SaveData.RName + ".\n"
                         + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
             else 
-                objectstorage.theGame.addObject(new Textbox("So his name is " + savedata.RName + ".\n"
+                ObjectStorage.theGame.addObject(new Textbox("So his name is " + SaveData.RName + ".\n"
                         + "BUTTON.CONFIRMATION" + "\nrname" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         }
     }
@@ -182,16 +173,15 @@ public class Letter extends Actor
      */
     public void uncutName(String pre)
     {
-        SaveData savedata = new SaveData();
         if(pre.equals("P"))
         {
-            savedata.Name = savedata.Name + "__________";
-            if(savedata.Name.length() > 10) savedata.Name = savedata.Name.substring(0,10);
+            SaveData.Name = SaveData.Name + "__________";
+            if(SaveData.Name.length() > 10) SaveData.Name = SaveData.Name.substring(0,10);
         }
         else if(pre.equals("R"))
         {
-            savedata.RName = savedata.RName + "__________";
-            if(savedata.RName.length() > 10) savedata.RName = savedata.RName.substring(0,10);
+            SaveData.RName = SaveData.RName + "__________";
+            if(SaveData.RName.length() > 10) SaveData.RName = SaveData.RName.substring(0,10);
         }
     }
 }

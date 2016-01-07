@@ -34,19 +34,17 @@ public class OButton extends Actor
         if(!update) setPicture();
         if(Greenfoot.mouseClicked(this))
         {
-            SaveData savedata = new SaveData();
-            ObjectStorage objectStorage = new ObjectStorage();
             if(type.startsWith("OC"))
             {
                 colorStringMapping();
-                savedata.Color = colorStringMap.get(type.substring(2,type.length()));
+                SaveData.Color = colorStringMap.get(type.substring(2,type.length()));
                 update = false;
             }
             else
             {
                 switch(type)
                 {
-                    case "back": if(objectStorage.lastWorld.equals("Game")) Greenfoot.setWorld(objectStorage.theGame);
+                    case "back": if(ObjectStorage.lastWorld.equals("Game")) Greenfoot.setWorld(ObjectStorage.theGame);
                     else Greenfoot.setWorld(new Menu());
                 }
             }
@@ -61,15 +59,14 @@ public class OButton extends Actor
         if(type.startsWith("OC"))
         {
             colorStringMapping();
-            SaveData savedata = new SaveData();
-            if(savedata.Color == colorStringMap.get(type.substring(2,type.length())) &&
-            savedata.Color == Color.YELLOW)
+            if(SaveData.Color == colorStringMap.get(type.substring(2,type.length())) &&
+            SaveData.Color == Color.YELLOW)
             {
                 setImage(new GreenfootImage(type.substring(2,type.length()),
                         40,colorStringMap.get(type.substring(2,type.length())),Color.ORANGE));
                         update = true;
             }
-            else if(savedata.Color == colorStringMap.get(type.substring(2,type.length())))
+            else if(SaveData.Color == colorStringMap.get(type.substring(2,type.length())))
             {
                 setImage(new GreenfootImage(type.substring(2,type.length()),
                         40,colorStringMap.get(type.substring(2,type.length())),Color.YELLOW));

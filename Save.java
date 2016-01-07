@@ -55,16 +55,15 @@ public class Save
      */
     public void assembleSave()
     {
-        SaveData savedata = new SaveData();
         getColorString();
-        String toSave = savedata.Name + " " + String.valueOf(savedata.TrainerID) + " " + 
-        savedata.RName + " " + String.valueOf(savedata.SecretID) + " " + 
-        String.valueOf(savedata.Money) + " " + String.valueOf(savedata.Male) + " \n" + 
-        String.valueOf(savedata.Boulder) + " " + String.valueOf(savedata.Cascade) + " " + 
-        String.valueOf(savedata.Thunder) + " " + String.valueOf(savedata.Rainbow) + " " + 
-        String.valueOf(savedata.Soul) + " " + String.valueOf(savedata.Marsh) + " \n" + 
-        String.valueOf(savedata.Volcano) + " " + String.valueOf(savedata.Earth) + " " +
-        savedata.ColorString + " " + String.valueOf(savedata.Time) + " ";
+        String toSave = SaveData.Name + " " + String.valueOf(SaveData.TrainerID) + " " + 
+        SaveData.RName + " " + String.valueOf(SaveData.SecretID) + " " + 
+        String.valueOf(SaveData.Money) + " " + String.valueOf(SaveData.Male) + " \n" + 
+        String.valueOf(SaveData.Boulder) + " " + String.valueOf(SaveData.Cascade) + " " + 
+        String.valueOf(SaveData.Thunder) + " " + String.valueOf(SaveData.Rainbow) + " " + 
+        String.valueOf(SaveData.Soul) + " " + String.valueOf(SaveData.Marsh) + " \n" + 
+        String.valueOf(SaveData.Volcano) + " " + String.valueOf(SaveData.Earth) + " " +
+        SaveData.ColorString + " " + String.valueOf(SaveData.Time) + " ";
         writeSave(toSave);
     }
     
@@ -113,7 +112,7 @@ public class Save
         colorMap.put(Color.RED,"Red");
         colorMap.put(Color.WHITE,"White");
         colorMap.put(Color.YELLOW,"Yellow");
-        SaveData savedata = new SaveData();
-        savedata.ColorString = colorMap.get(savedata.Color);
+        SaveData SaveData = new SaveData();
+        SaveData.ColorString = colorMap.get(SaveData.Color);
     }
 }

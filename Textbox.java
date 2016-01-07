@@ -149,8 +149,7 @@ public class Textbox extends Actor
     public GreenfootImage updateImg(String end)
     {
         GreenfootImage Background = new GreenfootImage("White600x100" + end + ".png"); 
-        SaveData savedata = new SaveData();
-        Background.setColor(savedata.Color);
+        Background.setColor(SaveData.Color);
         Background.drawRect(0,0,599,99);
         Background.setColor(Color.BLACK);
         Background.setFont(new Font("Serif",Font.PLAIN,20));
@@ -164,7 +163,6 @@ public class Textbox extends Actor
      */
     public void confirmation()
     {
-        ObjectStorage objectstorage = new ObjectStorage();
         confirmation = true;
         String purpose = textInput.nextLine();
         line2 = textInput.nextLine();
@@ -172,8 +170,8 @@ public class Textbox extends Actor
         String no = textInput.nextLine();
         bYes = new Button("tyes",this,yes,purpose);
         bNo = new Button("tno",this,no,purpose);
-        objectstorage.theGame.addObject(bYes,300,375);
-        objectstorage.theGame.addObject(bNo,400,375);
+        ObjectStorage.theGame.addObject(bYes,300,375);
+        ObjectStorage.theGame.addObject(bNo,400,375);
         setImage(updateImg(""));
     }
 
@@ -185,8 +183,7 @@ public class Textbox extends Actor
     {
         if(action.equals("gender"))
         {
-            ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.theGame.addObject(new Textbox("Alright so what is your " + 
+            ObjectStorage.theGame.addObject(new Textbox("Alright so what is your " + 
                     "name?\nTEXTBOX.DNEXT","002intro"),300,350);
             getWorld().removeObject(bYes);
             getWorld().removeObject(bNo);
@@ -194,14 +191,12 @@ public class Textbox extends Actor
         }
         else if(action.equals("name"))
         {
-            ObjectStorage objectstorage = new ObjectStorage();
-            SaveData savedata = new SaveData();
-            if(savedata.Male)
-            objectstorage.theGame.addObject(new Textbox("Here comes your rival, " +
+            if(SaveData.Male)
+            ObjectStorage.theGame.addObject(new Textbox("Here comes your rival, " +
             "my grandaughter.\nYou two have always been fighting.\nWhat was her name?"
             + "\nTEXTBOX.DNEXT","003intro"),300,350);
             else
-            objectstorage.theGame.addObject(new Textbox("Here comes your rival, " +
+            ObjectStorage.theGame.addObject(new Textbox("Here comes your rival, " +
             "my grandson.\nYou two have always been fighting.\nWhat was his name?"
             + "\nTEXTBOX.DNEXT","003intro"),300,350);
             getWorld().removeObject(bYes);
@@ -210,8 +205,7 @@ public class Textbox extends Actor
         }
         else if(action.equals("rname"))
         {
-            ObjectStorage storage = new ObjectStorage();
-            storage.theGame.startGame();
+            ObjectStorage.theGame.startGame();
         }
     }
 
@@ -223,15 +217,13 @@ public class Textbox extends Actor
     {
         if(action.equals("name"))
         {
-            ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.done.uncutName("P");
-            objectstorage.done.done = false;
+            ObjectStorage.done.uncutName("P");
+            ObjectStorage.done.done = false;
         }
         else if(action.equals("rname"))
         {
-            ObjectStorage objectstorage = new ObjectStorage();
-            objectstorage.done.uncutName("R");
-            objectstorage.done.done = false;
+            ObjectStorage.done.uncutName("R");
+            ObjectStorage.done.done = false;
         }
         getWorld().removeObject(bYes);
         getWorld().removeObject(bNo);

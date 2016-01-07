@@ -43,26 +43,32 @@ public class Player extends Actor
         int x = getX();
         int y = getY();
         MovingTiles tile = getOneIntersectingObject(MovingTiles.class);
-        if(direction.equals("right")) setLocation(getX() - 60, getY());
-        else if(direction.equals("down")) setLocation(getX(), getY() - 60);
-        else if(direction.equals("left")) setLocation(getX() + 60, getY());
-        else if(direction.equals("up")) setLocation(getX(), getY() + 60);
-        if(tile != null)
+        try
         {
-            if(tile.collision)
+            if(tile != null)
             {
-                if(tile.colX1 + tile.getX() != x && tile.colX2 + tile.getX() != x)
+                if(tile.collision)
                 {
-                    if(tile.colY1 + tile.getY() != y && tile.colY2 + tile.getY() != y)
+                    if(tile.colX1 + tile.getX() != x && tile.colX2 + tile.getX() != x)
                     {
-                        return false;
+                        if(tile.colY1 + tile.getY() != y && tile.colY2 + tile.getY() != y)
+                        {
+                            return false;
+                        }
+                        else return true;
                     }
                     else return true;
                 }
-                else return true;
+                else return false;
             }
             else return false;
         }
-        else return false;
+        finally
+        {
+            if(direction.equals("right")) setLocation(getX() - 60, getY());
+            else if(direction.equals("down")) setLocation(getX(), getY() - 60);
+            else if(direction.equals("left")) setLocation(getX() + 60, getY());
+            else if(direction.equals("up")) setLocation(getX(), getY() + 60);
+        }
     }
 }

@@ -10,8 +10,7 @@ public class SaveReader
 {
     static void loadSave()
     {
-        SaveData savedata = new SaveData();
         //Insert code here, possibly refer to the above imports
-        savedata.loaded = true;
+        SaveData.loaded = true;
     }
 }

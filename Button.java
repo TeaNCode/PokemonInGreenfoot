@@ -50,28 +50,27 @@ public class Button extends Actor
             Greenfoot.setWorld(new Menu());
         if(Greenfoot.mouseClicked(this))
         {
-            SaveData savedata = new SaveData();
-            ObjectStorage objectStorage = new ObjectStorage();
             switch(type)
             {
-                case "newgame": objectStorage.theGame = new Gameworld("newgame"); 
-                Greenfoot.setWorld(objectStorage.theGame); break;
-                case "continuegame": objectStorage.theGame = new Gameworld("continuegame"); 
-                Greenfoot.setWorld(objectStorage.theGame); break;
+                case "newgame": ObjectStorage.theGame = new Gameworld("newgame"); 
+                Greenfoot.setWorld(ObjectStorage.theGame); break;
+                case "continuegame": ObjectStorage.theGame = new Gameworld("continuegame"); 
+                Greenfoot.setWorld(ObjectStorage.theGame); break;
                 case "lowercase": lowerCase(); break;
                 case "uppercase": upperCase(); break;
-                case "male": savedata.Male = true;
+                case "male": SaveData.Male = true;
                 confirmGender(); break;
-                case "female": savedata.Male = false;
+                case "female": SaveData.Male = false;
                 confirmGender(); break;
                 case "tyes": textbox.yes(action); break;
                 case "tno": textbox.no(action); break;
-                case "exit": objectStorage.StartMenu.delete(); 
-                objectStorage.theGame.startMenu = false; break;
-                case "options":if(!savedata.loaded) SaveReader.loadSave();
+                case "exit": ObjectStorage.StartMenu.delete(); 
+                ObjectStorage.theGame.startMenu = false; break;
+                case "options":if(!SaveData.loaded) SaveReader.loadSave();
                 Greenfoot.setWorld(new Options()); ObjectStorage.lastWorld = "Game"; break;
                 case "gOptions":SaveReader.loadSave(); Greenfoot.setWorld(new Options()); ObjectStorage.lastWorld = "Menu"; break;
                 case "start": Greenfoot.setWorld(new Menu()); break;
+                case "save": 
             }
         }
         if(delete) getWorld().removeObject(this);
@@ -112,8 +111,7 @@ public class Button extends Actor
                     new Color(0,0,0,0))); break;
             case "exit": setImage(new GreenfootImage("Exit",40,Color.BLACK,
                     new Color(0,0,0,0))); break;
-            case "me": SaveData savedata = new SaveData();
-            setImage(new GreenfootImage(savedata.Name,30,Color.BLACK,new Color(0,0,0,0))); break;
+            case "me": setImage(new GreenfootImage(SaveData.Name,30,Color.BLACK,new Color(0,0,0,0))); break;
             case "gOptions": setImage(new GreenfootImage("Options",40,Color.LIGHT_GRAY,
                     new Color(0,0,0,0))); break;
             case "start": setImage(new GreenfootImage("Press Enter to start",40,Color.LIGHT_GRAY,
@@ -127,14 +125,13 @@ public class Button extends Actor
      */
     public void lowerCase()
     {
-        SaveData savedata = new SaveData();
         String[] lowercase = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n"
             ,"o","p","q","r","s","t","u","v","w","x","y","z",",",".","?","!","1","2","3","4",
                 "5","6","7","8","9","0"};
         for(int i = 0; i < 40; i++)
         {
-            savedata.Letters[i].letter = lowercase[i];
-            savedata.Letters[i].updateKeyboard();
+            SaveData.Letters[i].letter = lowercase[i];
+            SaveData.Letters[i].updateKeyboard();
         }
         getWorld().addObject(new Button("uppercase"),getX(),getY());
         delete = true;
@@ -145,14 +142,13 @@ public class Button extends Actor
      */
     public void upperCase()
     {
-        SaveData savedata = new SaveData();
         String[] uppercase = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
                 "R","S","T","U","V","W","X","Y","Z",",",".","?","!","1","2","3","4",
                 "5","6","7","8","9","0"};
         for(int i = 0; i < 40; i++)
         {
-            savedata.Letters[i].letter = uppercase[i];
-            savedata.Letters[i].updateKeyboard();
+            SaveData.Letters[i].letter = uppercase[i];
+            SaveData.Letters[i].updateKeyboard();
         }
         getWorld().addObject(new Button("lowercase"),getX(),getY());
         delete = true;
@@ -163,13 +159,11 @@ public class Button extends Actor
      */
     public void confirmGender()
     {
-        ObjectStorage objectstorage = new ObjectStorage();
-        SaveData savedata = new SaveData();
-        if(savedata.Male)
-            objectstorage.theGame.addObject(new Textbox("So you are a boy.\n"
+        if(SaveData.Male)
+            ObjectStorage.theGame.addObject(new Textbox("So you are a boy.\n"
                     + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
         else
-            objectstorage.theGame.addObject(new Textbox("So you are a girl.\n"
+            ObjectStorage.theGame.addObject(new Textbox("So you are a girl.\n"
                     + "BUTTON.CONFIRMATION" + "\ngender" + "\nIs this correct?" + "\nYes" + "\nNo"),300,350);
     }
 }
